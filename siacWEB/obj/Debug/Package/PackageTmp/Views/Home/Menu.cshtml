@@ -1,0 +1,134 @@
+﻿@{
+    ViewBag.Title = "Menu";
+}
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col menu_fixed">
+            <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0;">
+                    <a id="menu_toggle" class="site_title" style="cursor: pointer;"><i class="fa fa-list"></i> <span>Menú Principal</span></a>
+                </div>
+                <div class="clearfix"></div>
+                <div class="profile clearfix">
+                    <div class="profile_pic">
+                        <img src="https://homedepot.cdnonline.com.mx/00A5606/media2/productos/141426/141426-d.jpg" alt="..." class="img-circle profile_img">
+                    </div>
+                    <div class="profile_info">
+                        <span>Bienvenido,</span>
+                        <h2>Manuel Gómez</h2>
+                    </div>
+                </div>
+
+                <br />
+
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                    <div class="menu_section">
+                        <h3>General</h3>
+                        <ul class="nav side-menu">
+                            <li>
+                                <a><i class="fa fa-home"></i> Menu 1 <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="index.html">Submenu1</a></li>
+                                    <li><a href="index2.html">Submenu2</a></li>
+                                    <li><a href="index3.html">Submenu3</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a><i class="fa fa-edit"></i> Menu 2 <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="form.html">Submenu1</a></li>
+                                    <li><a href="form_advanced.html">Submenu2</a></li>
+                                    <li><a href="form_validation.html">Submenu3</a></li>
+                                    <li><a href="form_wizards.html">Submenu4</a></li>
+                                    <li><a href="form_upload.html">Submenu5</a></li>
+                                    <li><a href="form_buttons.html">Submenu6</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a><i class="fa fa-desktop"></i> Menu 3 <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="general_elements.html">Submenu1</a></li>
+                                    <li><a href="media_gallery.html">Submenu2</a></li>
+                                    <li><a href="typography.html">Submenu3</a></li>
+                                    <li><a href="icons.html">Submenu4</a></li>
+                                    <li><a href="glyphicons.html">Submenu5</a></li>
+                                    <li><a href="widgets.html">Submenu6</a></li>
+                                    <li><a href="invoice.html">Submenu7</a></li>
+                                    <li><a href="inbox.html">Submenu8</a></li>
+                                    <li><a href="calendar.html">Submenu9</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a><i class="fa fa-table"></i> Menu 4 <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="tables.html">Submenu1</a></li>
+                                    <li><a href="tables_dynamic.html">Submenu2</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a><i class="fa fa-barcode"></i> Menu 5 <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="chartjs.html">Submenu1</a></li>
+                                    <li><a href="chartjs2.html">Submenu2</a></li>
+                                    <li><a href="morisjs.html">Submenu3</a></li>
+                                    <li><a href="echarts.html">Submenu4</a></li>
+                                    <li><a href="other_charts.html">Submenu5</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="menu_section">
+                        <h3>Otra Seccion</h3>
+                        <ul class="nav side-menu">
+                            <li>
+                                <a><i class="fa fa-bug"></i> Menu Seccion 1 <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="e_commerce.html">Submenu1</a></li>
+                                    <li><a href="projects.html">Submenu2</a></li>
+                                    <li><a href="project_detail.html">Submenu3</a></li>
+                                    <li><a href="contacts.html">Submenu4</a></li>
+                                    <li><a href="profile.html">Submenu5</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a><i class="fa fa-sitemap"></i> Menu Seccion 2 <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="e_commerce.html">Submenu1</a></li>
+                                    <li><a href="projects.html">Submenu2</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sidebar-footer hidden-small">
+                    <a data-toggle="tooltip" data-placement="top" title="Configuración" style="cursor: pointer;">
+                        <span class="fa fa-cog" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="Usuario" style="cursor: pointer;">
+                        <span class="fa fa-user" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="Mensajes" style="cursor: pointer;">
+                        <span class="fa fa-envelope" aria-hidden="true"></span>
+                    </a>
+                    <a id="cerrarSesion" data-toggle="tooltip" data-placement="top" title="Cerrar Sesión" style="cursor: pointer;">
+                        <span class="fa fa-power-off" aria-hidden="true"></span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="right_col" role="main">
+            <div class="">
+                <div class="page-title"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<link rel="stylesheet" type="text/css" href="../Content/menuscroll.min.css">
+<link rel="stylesheet" type="text/css" href="../Content/menu.min.css">
+<script type="text/javascript" src="../Scripts/index.js"></script>
+<script type="text/javascript" src="../Scripts/menuscroll.min.js"></script>
+<script type="text/javascript" src="../Scripts/menu.min.js"></script>
