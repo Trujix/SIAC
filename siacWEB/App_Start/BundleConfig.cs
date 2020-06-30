@@ -20,18 +20,39 @@ namespace siacWEB
                       "~/JQueryUI/jquery-ui.css",
                       "~/Content/bootstrap.min.css",
                       "~/iconos/css/all.css",
+                      "~/Content/dataTables.bootstrap4.min.css",
                       "~/Content/pnotify.min.css",
                       "~/Content/pnotify.css",
                       "~/Content/loader.css"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+            bundles.Add(new ScriptBundle("~/bundles/scripts").Include(
                       "~/JQueryUI/jquery-ui.js",
                       "~/Scripts/bootstrap.min.js",
                       "~/Scripts/popper.min.js",
+                      "~/Scripts/jquery.dataTables.min.js",
+                      "~/Scripts/dataTables.bootstrap4.min.js",
                       "~/Scripts/pnotify.min.js",
                       "~/Scripts/pnotify.js",
                       "~/Scripts/loader.js",
-                      "~/Scripts/errores.js"));
+                      "~/Scripts/errores.js",
+                      "~/Scripts/auxfuns.js"));
+
+            bundles.Add(new StyleBundle("~/Content/login").Include(
+                      "~/Content/login.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/login").Include(
+                      "~/Scripts/login.js"));
+
+            bundles.Add(new StyleBundle("~/Content/menu").Include(
+                      "~/Content/menuscroll.min.css",
+                      "~/Content/menu.min.css",
+                      "~/Content/estilospers.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/menu").Include(
+                      "~/Scripts/menuscroll.min.js",
+                      "~/Scripts/menu.min.js",
+                      "~/Scripts/index.js",
+                      "~/Scripts/consultas.js"));
         }
     }
 }

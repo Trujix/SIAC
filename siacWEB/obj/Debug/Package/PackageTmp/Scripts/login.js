@@ -11,12 +11,22 @@ $(document).on('click', '#iniciarSesionBtn', function () {
             contentType: "application/x-www-form-urlencoded",
             url: "/Home/IniciarSesion",
             data: { LoginData: loginFormJSON },
+            dataType: 'JSON',
             beforeSend: function () {
                 LoadingOn("Verificando Usuario...");
             },
             success: function (data) {
-                if (data === "true") {
-                    location.reload();
+                if (data.Respuesta !== undefined) {
+                    if (data.Respuesta) {
+                        location.reload();
+                    } else {
+                        if (data.Error === "errLogin") {
+                            LoadingOff();
+                            MsgAlerta("Error!", "Usuario y/o contraseña <b>incorrectos</b>", 2000, "error");
+                        } else {
+                            errLog("E001", data.Error);
+                        }
+                    }
                 } else {
                     errLog("E001", data.responseText);
                 }
@@ -65,6 +75,7 @@ function veriFormLogin() {
         loginFormJSON = {
             Usuario: $('#usuarioTxt').val(),
             Pass: $('#passTxt').val(),
+            ClaveClinica: "9999"/*$('#claveClinicaTxt').val()*/,
         }
     }
     if (!correcto) {

@@ -10,6 +10,9 @@ namespace siacWEB.Controllers
 {
     public class HomeController : Controller
     {
+        // -------------- VARIABLES GLOBALES ---------------
+        MHome MiHome = new MHome();
+
         // ------------------ VISTAS ------------------
         // FUNCION QUE DEVUELVE LA VISTA PRINCIPAL
         public ActionResult Index()
@@ -37,18 +40,33 @@ namespace siacWEB.Controllers
             }
         }
 
+        // FUNCION QUE DEVUELVE  LA VISTA SIN PERMISO
+        public ActionResult SinPermiso()
+        {
+            return View();
+        }
+
         // ------------------ FUNCIONES ------------------
         // FUNCION QUE INICIA SESION
         public string IniciarSesion(MHome.LoginData LoginData)
         {
-            if(LoginData.Usuario == "adm" && LoginData.Pass == "123")
+            Dictionary<string, object> Respuesta = new Dictionary<string, object>();
+            MHome.LoginInfo Login = MiHome.IniciarSesion(LoginData, "NA", "NA");
+            if (Login.Correcto)
             {
-                MISC.CrearCookie("1a2b3c", 60);
-                return "true";
+                MISC.CrearParamsSesion(Login.TokenUsuario, Login.TokenClinica, Login.IdClinica, Login.PerfilUsuario, Login.NombreUsuario, Login.DuracionSesion);
+                Respuesta = new Dictionary<string, object>() {
+                    { "Respuesta", true },
+                };
+                return JsonConvert.SerializeObject(Respuesta);
             }
             else
             {
-                return "false";
+                Respuesta = new Dictionary<string, object>() {
+                    { "Respuesta", false },
+                    { "Error", Login.Error },
+                };
+                return JsonConvert.SerializeObject(Respuesta);
             }
         }
 
@@ -58,7 +76,34 @@ namespace siacWEB.Controllers
             try
             {
                 Response.Cookies["usuariodata"].Expires = DateTime.Now.AddDays(-1);
+                Session.Clear();
+                Session.Abandon();
                 return "true";
+            }
+            catch (Exception e)
+            {
+                return e.ToString();
+            }
+        }
+
+        // FUNCION QUE DEVUELVE LOS PARAMETROS DE USUARIO
+        public string UsuarioParams()
+        {
+            try
+            {
+                if (MISC.VerifSesion())
+                {
+                    Dictionary<string, object> UsuarioInfo = new Dictionary<string, object>()
+                    {
+                        { "NombreUsuario", Session["NombreUsuario"] },
+                        { "cookie", Request.Cookies["usuariodata"].Value.ToString() },
+                    };
+                    return JsonConvert.SerializeObject(UsuarioInfo);
+                }
+                else
+                {
+                    return "error";
+                }
             }
             catch (Exception e)
             {

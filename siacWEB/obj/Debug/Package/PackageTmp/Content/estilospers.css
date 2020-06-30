@@ -1,0 +1,530 @@
+﻿/* GENERALES */
+.upptxt {
+    text-transform: uppercase;
+}
+
+.modal-mlg {
+    max-width: 80vw;
+}
+
+/* ALERTS DE BOOTSTRAP ORIGINAL */
+.alert2 {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+.alert2-heading {
+    color: inherit;
+}
+.alert2-link {
+    font-weight: 700;
+}
+.alert2-dismissible {
+    padding-right: 4rem;
+}
+.alert2-dismissible .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.75rem 1.25rem;
+    color: inherit;
+}
+
+.alert2-primary {
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+}
+.alert2-primary hr {
+    border-top-color: #9fcdff;
+}
+.alert2-primary .alert2-link {
+    color: #002752;
+}
+.alert2-secondary {
+    color: #383d41;
+    background-color: #e2e3e5;
+    border-color: #d6d8db;
+}
+.alert2-secondary hr {
+    border-top-color: #c8cbcf;
+}
+.alert2-secondary .alert2-link {
+    color: #202326;
+}
+
+.alert2-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+.alert2-success hr {
+    border-top-color: #b1dfbb;
+}
+.alert2-success .alert2-link {
+    color: #0b2e13;
+}
+.alert2-info {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+}
+.alert2-info hr {
+    border-top-color: #abdde5;
+}
+.alert2-info .alert2-link {
+    color: #062c33;
+}
+.alert2-warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+.alert2-warning hr {
+    border-top-color: #ffe8a1;
+}
+.alert2-warning .alert2-link {
+    color: #533f03;
+}
+.alert2-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+.alert2-danger hr {
+    border-top-color: #f1b0b7;
+}
+.alert2-danger .alert2-link {
+    color: #491217;
+}
+.alert2-light {
+    color: #818182;
+    background-color: #fefefe;
+    border-color: #fdfdfe;
+}
+.alert2-light hr {
+    border-top-color: #ececf6;
+}
+.alert2-light .alert2-link {
+    color: #686868;
+}
+.alert2-dark {
+    color: #1b1e21;
+    background-color: #d6d8d9;
+    border-color: #c6c8ca;
+}
+.alert2-dark hr {
+    border-top-color: #b9bbbe;
+}
+.alert2-dark .alert2-link {
+    color: #040505;
+}
+
+/* ESTILO DEL SCROLL */
+.scrollestilo {
+    overflow: auto;
+}
+.scrollestilo::-webkit-scrollbar {
+    width: 12px;
+}
+.scrollestilo::-webkit-scrollbar-thumb {
+    background: #666;
+}
+.scrollestilo::-webkit-scrollbar-track {
+    background: #ddd;
+}
+.scrollestilo::-webkit-scrollbar-button {
+    background: #666;
+    height: 13px;
+    border-radius: 50%;
+}
+
+/* --- CHECKBOX --- */
+
+[class*="icheck-"] {
+    min-height: 22px;
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+    padding-left: 0px;
+}
+
+.icheck-inline {
+    display: inline-block;
+}
+
+    .icheck-inline + .icheck-inline {
+        margin-left: .75rem;
+        margin-top: 6px;
+    }
+
+[class*="icheck-"] > label {
+    padding-left: 29px !important;
+    min-height: 22px;
+    line-height: 22px;
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    margin-bottom: 0;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+[class*="icheck-"] > input:first-child {
+    position: absolute !important;
+    opacity: 0;
+    margin: 0;
+}
+
+    [class*="icheck-"] > input:first-child:disabled {
+        cursor: default;
+    }
+
+    [class*="icheck-"] > input:first-child + label::before,
+    [class*="icheck-"] > input:first-child + input[type="hidden"] + label::before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        border: 1px solid #D3CFC8;
+        border-radius: 0px;
+        margin-left: -29px;
+    }
+
+    [class*="icheck-"] > input:first-child:checked + label::after,
+    [class*="icheck-"] > input:first-child:checked + input[type="hidden"] + label::after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 7px;
+        height: 10px;
+        border: solid 2px #fff;
+        border-left: none;
+        border-top: none;
+        transform: translate(7.75px, 4.5px) rotate(45deg);
+        -ms-transform: translate(7.75px, 4.5px) rotate(45deg);
+    }
+
+[class*="icheck-"] > input[type="radio"]:first-child + label::before,
+[class*="icheck-"] > input[type="radio"]:first-child + input[type="hidden"] + label::before {
+    border-radius: 50%;
+}
+
+[class*="icheck-"] > input:first-child:not(:checked):not(:disabled):hover + label::before,
+[class*="icheck-"] > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+    border-width: 2px;
+}
+
+[class*="icheck-"] > input:first-child:disabled + label,
+[class*="icheck-"] > input:first-child:disabled + input[type="hidden"] + label,
+[class*="icheck-"] > input:first-child:disabled + label::before,
+[class*="icheck-"] > input:first-child:disabled + input[type="hidden"] + label::before {
+    pointer-events: none;
+    cursor: default;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    opacity: .65;
+}
+
+.icheck-default > input:first-child:not(:checked):not(:disabled):hover + label::before,
+.icheck-default > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+    border-color: #adadad;
+}
+
+.icheck-default > input:first-child:checked + label::before,
+.icheck-default > input:first-child:checked + input[type="hidden"] + label::before {
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+
+.icheck-default > input:first-child:checked + label::after,
+.icheck-default > input:first-child:checked + input[type="hidden"] + label::after {
+    border-bottom-color: #333;
+    border-right-color: #333;
+}
+
+.icheck-primary > input:first-child:not(:checked):not(:disabled):hover + label::before,
+.icheck-primary > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+    border-color: #2e6da4;
+}
+
+.icheck-primary > input:first-child:checked + label::before,
+.icheck-primary > input:first-child:checked + input[type="hidden"] + label::before {
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+
+.icheck-success > input:first-child:not(:checked):not(:disabled):hover + label::before,
+.icheck-success > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+    border-color: #4cae4c;
+}
+
+.icheck-success > input:first-child:checked + label::before,
+.icheck-success > input:first-child:checked + input[type="hidden"] + label::before {
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+.icheck-info > input:first-child:not(:checked):not(:disabled):hover + label::before,
+.icheck-info > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+    border-color: #46b8da;
+}
+
+.icheck-info > input:first-child:checked + label::before,
+.icheck-info > input:first-child:checked + input[type="hidden"] + label::before {
+    background-color: #5bc0de;
+    border-color: #46b8da;
+}
+
+.icheck-warning > input:first-child:not(:checked):not(:disabled):hover + label::before,
+.icheck-warning > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+    border-color: #eea236;
+}
+
+.icheck-warning > input:first-child:checked + label::before,
+.icheck-warning > input:first-child:checked + input[type="hidden"] + label::before {
+    background-color: #f0ad4e;
+    border-color: #eea236;
+}
+
+.icheck-danger > input:first-child:not(:checked):not(:disabled):hover + label::before,
+.icheck-danger > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+    border-color: #d43f3a;
+}
+
+.icheck-danger > input:first-child:checked + label::before,
+.icheck-danger > input:first-child:checked + input[type="hidden"] + label::before {
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.icheck-turquoise > input:first-child:not(:checked):not(:disabled):hover + label::before,
+.icheck-turquoise > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+    border-color: #1abc9c;
+}
+
+.icheck-turquoise > input:first-child:checked + label::before,
+.icheck-turquoise > input:first-child:checked + input[type="hidden"] + label::before {
+    background-color: #1abc9c;
+    border-color: #1abc9c;
+}
+
+.icheck-emerland > input:first-child:not(:checked):not(:disabled):hover + label::before,
+.icheck-emerland > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+    border-color: #2ecc71;
+}
+
+.icheck-emerland > input:first-child:checked + label::before,
+.icheck-emerland > input:first-child:checked + input[type="hidden"] + label::before {
+    background-color: #2ecc71;
+    border-color: #2ecc71;
+}
+
+.icheck-peterriver > input:first-child:not(:checked):not(:disabled):hover + label::before,
+.icheck-peterriver > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+    border-color: #3498db;
+}
+
+.icheck-peterriver > input:first-child:checked + label::before,
+.icheck-peterriver > input:first-child:checked + input[type="hidden"] + label::before {
+    background-color: #3498db;
+    border-color: #3498db;
+}
+
+.icheck-amethyst > input:first-child:not(:checked):not(:disabled):hover + label::before,
+.icheck-amethyst > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+    border-color: #9b59b6;
+}
+
+.icheck-amethyst > input:first-child:checked + label::before,
+.icheck-amethyst > input:first-child:checked + input[type="hidden"] + label::before {
+    background-color: #9b59b6;
+    border-color: #9b59b6;
+}
+
+.icheck-wetasphalt > input:first-child:not(:checked):not(:disabled):hover + label::before,
+.icheck-wetasphalt > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+    border-color: #34495e;
+}
+
+.icheck-wetasphalt > input:first-child:checked + label::before,
+.icheck-wetasphalt > input:first-child:checked + input[type="hidden"] + label::before {
+    background-color: #34495e;
+    border-color: #34495e;
+}
+
+.icheck-greensea > input:first-child:not(:checked):not(:disabled):hover + label::before,
+.icheck-greensea > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+    border-color: #16a085;
+}
+
+.icheck-greensea > input:first-child:checked + label::before,
+.icheck-greensea > input:first-child:checked + input[type="hidden"] + label::before {
+    background-color: #16a085;
+    border-color: #16a085;
+}
+
+.icheck-nephritis > input:first-child:not(:checked):not(:disabled):hover + label::before,
+.icheck-nephritis > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+    border-color: #27ae60;
+}
+
+.icheck-nephritis > input:first-child:checked + label::before,
+.icheck-nephritis > input:first-child:checked + input[type="hidden"] + label::before {
+    background-color: #27ae60;
+    border-color: #27ae60;
+}
+
+.icheck-belizehole > input:first-child:not(:checked):not(:disabled):hover + label::before,
+.icheck-belizehole > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+    border-color: #2980b9;
+}
+
+.icheck-belizehole > input:first-child:checked + label::before,
+.icheck-belizehole > input:first-child:checked + input[type="hidden"] + label::before {
+    background-color: #2980b9;
+    border-color: #2980b9;
+}
+
+.icheck-wisteria > input:first-child:not(:checked):not(:disabled):hover + label::before,
+.icheck-wisteria > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+    border-color: #8e44ad;
+}
+
+.icheck-wisteria > input:first-child:checked + label::before,
+.icheck-wisteria > input:first-child:checked + input[type="hidden"] + label::before {
+    background-color: #8e44ad;
+    border-color: #8e44ad;
+}
+
+.icheck-midnightblue > input:first-child:not(:checked):not(:disabled):hover + label::before,
+.icheck-midnightblue > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+    border-color: #2c3e50;
+}
+
+.icheck-midnightblue > input:first-child:checked + label::before,
+.icheck-midnightblue > input:first-child:checked + input[type="hidden"] + label::before {
+    background-color: #2c3e50;
+    border-color: #2c3e50;
+}
+
+.icheck-sunflower > input:first-child:not(:checked):not(:disabled):hover + label::before,
+.icheck-sunflower > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+    border-color: #f1c40f;
+}
+
+.icheck-sunflower > input:first-child:checked + label::before,
+.icheck-sunflower > input:first-child:checked + input[type="hidden"] + label::before {
+    background-color: #f1c40f;
+    border-color: #f1c40f;
+}
+
+.icheck-carrot > input:first-child:not(:checked):not(:disabled):hover + label::before,
+.icheck-carrot > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+    border-color: #e67e22;
+}
+
+.icheck-carrot > input:first-child:checked + label::before,
+.icheck-carrot > input:first-child:checked + input[type="hidden"] + label::before {
+    background-color: #e67e22;
+    border-color: #e67e22;
+}
+
+.icheck-alizarin > input:first-child:not(:checked):not(:disabled):hover + label::before,
+.icheck-alizarin > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+    border-color: #e74c3c;
+}
+
+.icheck-alizarin > input:first-child:checked + label::before,
+.icheck-alizarin > input:first-child:checked + input[type="hidden"] + label::before {
+    background-color: #e74c3c;
+    border-color: #e74c3c;
+}
+
+.icheck-clouds > input:first-child:not(:checked):not(:disabled):hover + label::before,
+.icheck-clouds > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+    border-color: #ecf0f1;
+}
+
+.icheck-clouds > input:first-child:checked + label::before,
+.icheck-clouds > input:first-child:checked + input[type="hidden"] + label::before {
+    background-color: #ecf0f1;
+    border-color: #ecf0f1;
+}
+
+.icheck-clouds > input:first-child:checked + label::after,
+.icheck-clouds > input:first-child:checked + input[type="hidden"] + label::after {
+    border-bottom-color: #95a5a6;
+    border-right-color: #95a5a6;
+}
+
+.icheck-concrete > input:first-child:not(:checked):not(:disabled):hover + label::before,
+.icheck-concrete > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+    border-color: #95a5a6;
+}
+
+.icheck-concrete > input:first-child:checked + label::before,
+.icheck-concrete > input:first-child:checked + input[type="hidden"] + label::before {
+    background-color: #95a5a6;
+    border-color: #95a5a6;
+}
+
+.icheck-orange > input:first-child:not(:checked):not(:disabled):hover + label::before,
+.icheck-orange > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+    border-color: #f39c12;
+}
+
+.icheck-orange > input:first-child:checked + label::before,
+.icheck-orange > input:first-child:checked + input[type="hidden"] + label::before {
+    background-color: #f39c12;
+    border-color: #f39c12;
+}
+
+.icheck-pumpkin > input:first-child:not(:checked):not(:disabled):hover + label::before,
+.icheck-pumpkin > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+    border-color: #d35400;
+}
+
+.icheck-pumpkin > input:first-child:checked + label::before,
+.icheck-pumpkin > input:first-child:checked + input[type="hidden"] + label::before {
+    background-color: #d35400;
+    border-color: #d35400;
+}
+
+.icheck-pomegranate > input:first-child:not(:checked):not(:disabled):hover + label::before,
+.icheck-pomegranate > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+    border-color: #c0392b;
+}
+
+.icheck-pomegranate > input:first-child:checked + label::before,
+.icheck-pomegranate > input:first-child:checked + input[type="hidden"] + label::before {
+    background-color: #c0392b;
+    border-color: #c0392b;
+}
+
+.icheck-silver > input:first-child:not(:checked):not(:disabled):hover + label::before,
+.icheck-silver > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+    border-color: #bdc3c7;
+}
+
+.icheck-silver > input:first-child:checked + label::before,
+.icheck-silver > input:first-child:checked + input[type="hidden"] + label::before {
+    background-color: #bdc3c7;
+    border-color: #bdc3c7;
+}
+
+.icheck-asbestos > input:first-child:not(:checked):not(:disabled):hover + label::before,
+.icheck-asbestos > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+    border-color: #7f8c8d;
+}
+
+.icheck-asbestos > input:first-child:checked + label::before,
+.icheck-asbestos > input:first-child:checked + input[type="hidden"] + label::before {
+    background-color: #7f8c8d;
+    border-color: #7f8c8d;
+}

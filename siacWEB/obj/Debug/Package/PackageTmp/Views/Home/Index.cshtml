@@ -1,6 +1,7 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+@Styles.Render("~/Content/login")
 <div class="login-button">
     <img src="../Media/loginicono.png" />
 </div>
@@ -8,12 +9,11 @@
     <h3 class="tituloLogin">Iniciar Sesión</h3>
     <div>
         <input id="usuarioTxt" type="email" name="email" placeholder="Usuario" autocomplete="off">
-        <input id="passTxt" type="password" name="pass" placeholder="Contraseña" autocomplete="">
+        <input id="passTxt" type="password" name="pass" placeholder="Contraseña" autocomplete="off">
         <button id="iniciarSesionBtn" class="btn btn-sm btn-success btn-block" style="width: 92%; margin-left: 10px;">Identificarse</button>
         <div id="remember-container">
             <span id="forgotten">Olvidé mi Contraseña</span>
         </div>
     </div>
 </div>
-<link rel="stylesheet" type="text/css" href="../Content/login.css">
-<script type="text/javascript" src="../Scripts/login.js"></script>
+@Scripts.Render("~/bundles/login")

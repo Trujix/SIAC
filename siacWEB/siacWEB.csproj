@@ -139,17 +139,21 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ConsultasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="MISC.cs" />
+    <Compile Include="Models\MConsultas.cs" />
     <Compile Include="Models\MHome.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQL.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\estilospers.css" />
     <Content Include="Content\loader.css" />
     <Content Include="Content\login.css" />
     <Content Include="Content\menu.min.css" />
@@ -1827,9 +1831,14 @@
     <Content Include="iconos\webfonts\fa-solid-900.woff2" />
     <None Include="Properties\PublishProfiles\IIS.pubxml" />
     <Content Include="Media\loginicono.png" />
+    <Content Include="Media\usuariodefault.png" />
+    <Content Include="Scripts\auxfuns.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\consultas.js" />
+    <Content Include="Scripts\dataTables.bootstrap4.min.js" />
     <Content Include="Scripts\errores.js" />
     <Content Include="Scripts\index.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\loader.js" />
@@ -1852,9 +1861,12 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Menu.cshtml" />
+    <Content Include="Views\Home\SinPermiso.cshtml" />
+    <Content Include="Views\Consultas\RegistrarConsulta.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\MConsultas\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -1,0 +1,111 @@
+﻿@{
+    Layout = null;
+}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <button id="btnCargarCitas" class="btn btn-sm btn-primary btn-block"><i class="fa fa-search"></i> Cargar Citas</button>
+                    </div>
+                    <div class="col-sm-2">
+                        <button id="btnNuevaCita" class="btn btn-sm btn-info btn-block"><i class="fa fa-plus"></i> Crear Cita</button>
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-sm btn-secondary btn-block"><i class="fa fa-mobile-alt"></i> Ver Solicitudes</button>
+                    </div>
+                </div>
+                <div class="row" style="padding-top: 5px;">
+                    <div class="col-sm-12">
+                        <div class="table-responsive">
+                            <table id="tablaCitas" class="table table-sm table-striped table-bordered" style="width:100%"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalNuevaCita" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-mlg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalNuevaCitaTitulo">Nueva Cita</h5>
+            </div>
+            <div class="modal-body scrollestilo" style="height: 74vh;">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="modalNuevaCitaNombreDiv"><i class="fa fa-user"></i>&nbsp;Nombre del Paciente</label>
+                            <div id="modalNuevaCitaNombreDiv" class="input-group input-group-sm mb-3">
+                                <input id="modalNuevaCitaNombre" type="text" class="form-control form-control-sm nuevacitatxt upptxt" placeholder="Nombre" autocomplete="off">
+                                <div class="input-group-append">
+                                    <button id="modalNuevaCitaNombreBuscar" tabindex="-1" class="btn btn-outline-secondary" type="button"><i class="fa fa-search"></i> (F2)</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label for="modalNuevaCitaApellidoP"><i class="fa fa-user"></i>&nbsp;Apellido Paterno</label>
+                            <input id="modalNuevaCitaApellidoP" type="text" class="form-control form-control-sm nuevacitatxt upptxt" placeholder="Apellido Paterno" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label for="modalNuevaCitaApellidoM"><i class="fa fa-user"></i>&nbsp;Apellido Materno</label>
+                            <input id="modalNuevaCitaApellidoM" type="text" class="form-control form-control-sm nuevacitatxt upptxt" placeholder="Apellido Materno" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="modalNuevaCitaTelefono"><i class="fa fa-user"></i>&nbsp;Teléfono</label>
+                            <input id="modalNuevaCitaTelefono" type="number" class="form-control form-control-sm nuevacitanum upptxt" placeholder="Teléfono" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="modalNuevaCitaEmail"><i class="fa fa-at"></i>&nbsp;Correo Electrónico</label>
+                            <input id="modalNuevaCitaEmail" type="text" class="form-control form-control-sm nuevacitatxt" placeholder="Correo Electrónico" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="icheck-greensea" style="padding-top: 25px;">
+                            <input id="modalNuevaCitaEmailSi" type="checkbox" />
+                            <label for="modalNuevaCitaEmailSi">&nbsp;Notificar por Email</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label for="modalNuevaCitaEspecialidad"><i class="fa fa-briefcase-medical"></i>&nbsp;Especialidad</label>
+                            <select id="modalNuevaCitaEspecialidad" class="form-control form-control-sm nuevacitasel"></select>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label for="modalNuevaCitaMedico"><i class="fa fa-user-md"></i>&nbsp;Médico</label>
+                            <select id="modalNuevaCitaMedico" class="form-control form-control-sm nuevacitasel"></select>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div id="modalNuevaCitaDivMedicoParams" class="row">
+                    <div class="col-sm-12" align="center">
+                        <div class="alert2 alert2-secondary" role="alert">
+                            <b><i class="fa fa-clock"></i> Seleccione un Médico para configurar la cita</b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="modalNuevaCitaGuardar" type="button" class="btn btn-sm btn-success"><i class="fa fa-save"></i> Guardar Cita</button>
+                <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal"><i class="fa fa-times-circle"></i> Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -196,10 +196,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>05/24/2018 07:38:24</publishTime>
     </File>
     <File Include="bin/siacWEB.dll">
-      <publishTime>06/24/2020 20:18:39</publishTime>
+      <publishTime>06/30/2020 01:12:34</publishTime>
     </File>
     <File Include="bin/siacWEB.pdb">
-      <publishTime>06/24/2020 20:18:39</publishTime>
+      <publishTime>06/30/2020 01:12:34</publishTime>
     </File>
     <File Include="bin/System.Diagnostics.DiagnosticSource.dll">
       <publishTime>07/19/2017 04:01:30</publishTime>
@@ -238,28 +238,34 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>01/23/2014 06:57:34</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.css">
-      <publishTime>06/21/2020 12:35:41</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.css.map">
-      <publishTime>06/21/2020 12:35:41</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.min.css">
-      <publishTime>06/21/2020 12:35:41</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.min.css.map">
-      <publishTime>06/21/2020 12:35:41</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap.css">
-      <publishTime>06/21/2020 12:35:41</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap.css.map">
-      <publishTime>06/21/2020 12:35:40</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap.min.css">
       <publishTime>06/21/2020 17:17:22</publishTime>
     </File>
     <File Include="Content/bootstrap.min.css.map">
       <publishTime>06/21/2020 17:17:22</publishTime>
+    </File>
+    <File Include="Content/dataTables.bootstrap4.min.css">
+      <publishTime>06/27/2020 01:42:48</publishTime>
+    </File>
+    <File Include="Content/estilospers.css">
+      <publishTime>06/29/2020 14:41:55</publishTime>
     </File>
     <File Include="Content/loader.css">
       <publishTime>06/21/2020 19:48:57</publishTime>
@@ -268,7 +274,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/21/2020 18:17:06</publishTime>
     </File>
     <File Include="Content/menu.min.css">
-      <publishTime>06/21/2020 23:12:01</publishTime>
+      <publishTime>06/28/2020 01:32:42</publishTime>
     </File>
     <File Include="Content/menuscroll.min.css">
       <publishTime>06/22/2020 01:34:59</publishTime>
@@ -280,10 +286,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/21/2020 19:14:37</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>06/21/2020 12:35:02</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="favicon.ico">
-      <publishTime>06/21/2020 12:35:02</publishTime>
+      <publishTime>06/28/2020 18:26:21</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.eot">
       <publishTime>06/21/2020 12:35:40</publishTime>
@@ -817,7 +823,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/21/2020 21:52:09</publishTime>
     </File>
     <File Include="iconos/svgs/brands/deezer.svg">
-      <publishTime>06/21/2020 18:57:49</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/brands/delicious.svg">
       <publishTime>06/21/2020 21:52:09</publishTime>
@@ -883,7 +889,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/21/2020 21:52:09</publishTime>
     </File>
     <File Include="iconos/svgs/brands/edge-legacy.svg">
-      <publishTime>06/21/2020 18:57:49</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/brands/edge.svg">
       <publishTime>06/21/2020 21:52:09</publishTime>
@@ -1066,7 +1072,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/21/2020 21:52:09</publishTime>
     </File>
     <File Include="iconos/svgs/brands/google-pay.svg">
-      <publishTime>06/21/2020 18:57:49</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/brands/google-play.svg">
       <publishTime>06/21/2020 21:52:09</publishTime>
@@ -1498,7 +1504,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/21/2020 21:52:11</publishTime>
     </File>
     <File Include="iconos/svgs/brands/rust.svg">
-      <publishTime>06/21/2020 18:57:51</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/brands/safari.svg">
       <publishTime>06/21/2020 21:52:11</publishTime>
@@ -1672,7 +1678,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/21/2020 21:52:11</publishTime>
     </File>
     <File Include="iconos/svgs/brands/tiktok.svg">
-      <publishTime>06/21/2020 18:57:51</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/brands/trade-federation.svg">
       <publishTime>06/21/2020 21:52:11</publishTime>
@@ -1720,7 +1726,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/21/2020 21:52:12</publishTime>
     </File>
     <File Include="iconos/svgs/brands/unsplash.svg">
-      <publishTime>06/21/2020 18:57:51</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/brands/untappd.svg">
       <publishTime>06/21/2020 21:52:12</publishTime>
@@ -2485,10 +2491,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/21/2020 21:52:14</publishTime>
     </File>
     <File Include="iconos/svgs/solid/bacteria.svg">
-      <publishTime>06/21/2020 18:57:55</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/bacterium.svg">
-      <publishTime>06/21/2020 18:57:55</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/bahai.svg">
       <publishTime>06/21/2020 21:52:14</publishTime>
@@ -2632,7 +2638,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/21/2020 21:52:15</publishTime>
     </File>
     <File Include="iconos/svgs/solid/box-tissue.svg">
-      <publishTime>06/21/2020 18:57:56</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/box.svg">
       <publishTime>06/21/2020 21:52:15</publishTime>
@@ -3112,7 +3118,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/21/2020 21:52:16</publishTime>
     </File>
     <File Include="iconos/svgs/solid/disease.svg">
-      <publishTime>06/21/2020 18:57:57</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/divide.svg">
       <publishTime>06/21/2020 21:52:16</publishTime>
@@ -3268,7 +3274,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/21/2020 21:52:17</publishTime>
     </File>
     <File Include="iconos/svgs/solid/faucet.svg">
-      <publishTime>06/21/2020 18:57:57</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/fax.svg">
       <publishTime>06/21/2020 21:52:17</publishTime>
@@ -3583,13 +3589,13 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/21/2020 21:52:18</publishTime>
     </File>
     <File Include="iconos/svgs/solid/hand-holding-medical.svg">
-      <publishTime>06/21/2020 18:57:58</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/hand-holding-usd.svg">
       <publishTime>06/21/2020 21:52:18</publishTime>
     </File>
     <File Include="iconos/svgs/solid/hand-holding-water.svg">
-      <publishTime>06/21/2020 18:57:58</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/hand-holding.svg">
       <publishTime>06/21/2020 21:52:18</publishTime>
@@ -3628,7 +3634,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/21/2020 21:52:18</publishTime>
     </File>
     <File Include="iconos/svgs/solid/hand-sparkles.svg">
-      <publishTime>06/21/2020 18:57:58</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/hand-spock.svg">
       <publishTime>06/21/2020 21:52:18</publishTime>
@@ -3637,16 +3643,16 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/21/2020 21:52:18</publishTime>
     </File>
     <File Include="iconos/svgs/solid/hands-wash.svg">
-      <publishTime>06/21/2020 18:57:59</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/hands.svg">
       <publishTime>06/21/2020 21:52:18</publishTime>
     </File>
     <File Include="iconos/svgs/solid/handshake-alt-slash.svg">
-      <publishTime>06/21/2020 18:57:59</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/handshake-slash.svg">
-      <publishTime>06/21/2020 18:57:59</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/handshake.svg">
       <publishTime>06/21/2020 21:52:18</publishTime>
@@ -3673,16 +3679,16 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/21/2020 21:52:18</publishTime>
     </File>
     <File Include="iconos/svgs/solid/head-side-cough-slash.svg">
-      <publishTime>06/21/2020 18:57:59</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/head-side-cough.svg">
-      <publishTime>06/21/2020 18:57:59</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/head-side-mask.svg">
-      <publishTime>06/21/2020 18:57:59</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/head-side-virus.svg">
-      <publishTime>06/21/2020 18:57:59</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/heading.svg">
       <publishTime>06/21/2020 21:52:18</publishTime>
@@ -3742,7 +3748,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/21/2020 21:52:18</publishTime>
     </File>
     <File Include="iconos/svgs/solid/hospital-user.svg">
-      <publishTime>06/21/2020 18:57:59</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/hospital.svg">
       <publishTime>06/21/2020 21:52:18</publishTime>
@@ -3772,7 +3778,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/21/2020 21:52:19</publishTime>
     </File>
     <File Include="iconos/svgs/solid/house-user.svg">
-      <publishTime>06/21/2020 18:57:59</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/hryvnia.svg">
       <publishTime>06/21/2020 21:52:19</publishTime>
@@ -3871,7 +3877,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/21/2020 21:52:19</publishTime>
     </File>
     <File Include="iconos/svgs/solid/laptop-house.svg">
-      <publishTime>06/21/2020 18:57:59</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/laptop-medical.svg">
       <publishTime>06/21/2020 21:52:19</publishTime>
@@ -3964,10 +3970,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/21/2020 21:52:19</publishTime>
     </File>
     <File Include="iconos/svgs/solid/lungs-virus.svg">
-      <publishTime>06/21/2020 18:58:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/lungs.svg">
-      <publishTime>06/21/2020 18:58:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/magic.svg">
       <publishTime>06/21/2020 21:52:19</publishTime>
@@ -4240,7 +4246,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/21/2020 21:52:20</publishTime>
     </File>
     <File Include="iconos/svgs/solid/people-arrows.svg">
-      <publishTime>06/21/2020 18:58:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/people-carry.svg">
       <publishTime>06/21/2020 21:52:20</publishTime>
@@ -4297,7 +4303,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/21/2020 21:52:20</publishTime>
     </File>
     <File Include="iconos/svgs/solid/plane-slash.svg">
-      <publishTime>06/21/2020 18:58:01</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/plane.svg">
       <publishTime>06/21/2020 21:52:20</publishTime>
@@ -4372,10 +4378,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/21/2020 21:52:20</publishTime>
     </File>
     <File Include="iconos/svgs/solid/pump-medical.svg">
-      <publishTime>06/21/2020 18:58:01</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/pump-soap.svg">
-      <publishTime>06/21/2020 18:58:01</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/puzzle-piece.svg">
       <publishTime>06/21/2020 21:52:20</publishTime>
@@ -4564,7 +4570,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/21/2020 21:52:21</publishTime>
     </File>
     <File Include="iconos/svgs/solid/shield-virus.svg">
-      <publishTime>06/21/2020 18:58:01</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/ship.svg">
       <publishTime>06/21/2020 21:52:21</publishTime>
@@ -4612,7 +4618,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/21/2020 21:52:21</publishTime>
     </File>
     <File Include="iconos/svgs/solid/sink.svg">
-      <publishTime>06/21/2020 18:58:02</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/sitemap.svg">
       <publishTime>06/21/2020 21:52:21</publishTime>
@@ -4675,7 +4681,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/21/2020 21:52:22</publishTime>
     </File>
     <File Include="iconos/svgs/solid/soap.svg">
-      <publishTime>06/21/2020 18:58:02</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/socks.svg">
       <publishTime>06/21/2020 21:52:22</publishTime>
@@ -4798,19 +4804,19 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/21/2020 21:52:22</publishTime>
     </File>
     <File Include="iconos/svgs/solid/stopwatch-20.svg">
-      <publishTime>06/21/2020 18:58:02</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/stopwatch.svg">
       <publishTime>06/21/2020 21:52:22</publishTime>
     </File>
     <File Include="iconos/svgs/solid/store-alt-slash.svg">
-      <publishTime>06/21/2020 18:58:02</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/store-alt.svg">
       <publishTime>06/21/2020 21:52:22</publishTime>
     </File>
     <File Include="iconos/svgs/solid/store-slash.svg">
-      <publishTime>06/21/2020 18:58:02</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/store.svg">
       <publishTime>06/21/2020 21:52:22</publishTime>
@@ -4990,7 +4996,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/21/2020 21:52:23</publishTime>
     </File>
     <File Include="iconos/svgs/solid/toilet-paper-slash.svg">
-      <publishTime>06/21/2020 18:58:03</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/toilet-paper.svg">
       <publishTime>06/21/2020 21:52:23</publishTime>
@@ -5188,7 +5194,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/21/2020 21:52:23</publishTime>
     </File>
     <File Include="iconos/svgs/solid/users-slash.svg">
-      <publishTime>06/21/2020 18:58:03</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/users.svg">
       <publishTime>06/21/2020 21:52:23</publishTime>
@@ -5227,13 +5233,13 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/21/2020 21:52:23</publishTime>
     </File>
     <File Include="iconos/svgs/solid/virus-slash.svg">
-      <publishTime>06/21/2020 18:58:04</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/virus.svg">
-      <publishTime>06/21/2020 18:58:04</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/viruses.svg">
-      <publishTime>06/21/2020 18:58:04</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="iconos/svgs/solid/voicemail.svg">
       <publishTime>06/21/2020 21:52:23</publishTime>
@@ -5424,74 +5430,89 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="Media/loginicono.png">
       <publishTime>06/21/2020 18:12:59</publishTime>
     </File>
+    <File Include="Media/usuariodefault.png">
+      <publishTime>06/25/2020 18:33:54</publishTime>
+    </File>
+    <File Include="Scripts/auxfuns.js">
+      <publishTime>06/28/2020 23:23:52</publishTime>
+    </File>
     <File Include="Scripts/bootstrap.js">
-      <publishTime>06/21/2020 12:35:40</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Scripts/bootstrap.min.js">
       <publishTime>06/21/2020 23:29:03</publishTime>
     </File>
     <File Include="Scripts/bootstrap.min.js.map">
-      <publishTime>06/21/2020 17:16:26</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Scripts/bootstrap4-toggle.min.js.map">
-      <publishTime>06/21/2020 17:16:26</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Scripts/consultas.js">
+      <publishTime>06/30/2020 01:28:57</publishTime>
+    </File>
+    <File Include="Scripts/dataTables.bootstrap4.min.js">
+      <publishTime>06/27/2020 01:43:15</publishTime>
     </File>
     <File Include="Scripts/errores.js">
-      <publishTime>06/22/2020 00:41:17</publishTime>
+      <publishTime>06/30/2020 00:16:59</publishTime>
     </File>
     <File Include="Scripts/index.js">
-      <publishTime>06/24/2020 20:17:32</publishTime>
+      <publishTime>06/27/2020 23:41:04</publishTime>
     </File>
     <File Include="Scripts/jquery-3.3.1.js">
-      <publishTime>06/21/2020 12:35:42</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Scripts/jquery-3.3.1.min.js">
-      <publishTime>06/21/2020 12:35:42</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Scripts/jquery-3.3.1.min.map">
-      <publishTime>06/21/2020 12:35:42</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Scripts/jquery-3.3.1.slim.js">
-      <publishTime>06/21/2020 12:35:42</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Scripts/jquery-3.3.1.slim.min.js">
-      <publishTime>06/21/2020 12:35:42</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Scripts/jquery-3.3.1.slim.min.map">
-      <publishTime>06/21/2020 12:35:42</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Scripts/jquery.dataTables.min.js">
+      <publishTime>06/27/2020 01:43:15</publishTime>
     </File>
     <File Include="Scripts/jquery.min.js">
-      <publishTime>06/21/2020 17:03:08</publishTime>
+      <publishTime>06/25/2020 21:54:53</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.js">
       <publishTime>06/21/2020 12:36:02</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.min.js">
-      <publishTime>06/21/2020 12:36:02</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.unobtrusive.js">
-      <publishTime>06/21/2020 12:36:03</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.unobtrusive.min.js">
-      <publishTime>06/21/2020 12:36:03</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Scripts/loader.js">
       <publishTime>06/21/2020 20:06:33</publishTime>
     </File>
     <File Include="Scripts/login.js">
-      <publishTime>06/22/2020 00:44:40</publishTime>
+      <publishTime>06/26/2020 15:48:16</publishTime>
     </File>
     <File Include="Scripts/menu.min.js">
-      <publishTime>06/21/2020 23:27:27</publishTime>
+      <publishTime>06/27/2020 02:14:10</publishTime>
     </File>
     <File Include="Scripts/menuscroll.min.css">
-      <publishTime>06/22/2020 01:33:28</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Scripts/menuscroll.min.js">
-      <publishTime>06/22/2020 01:37:16</publishTime>
+      <publishTime>06/25/2020 21:32:14</publishTime>
     </File>
     <File Include="Scripts/modernizr-2.8.3.js">
-      <publishTime>06/21/2020 12:36:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Scripts/modernizr.js">
       <publishTime>06/21/2020 12:36:00</publishTime>
@@ -5505,23 +5526,29 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="Scripts/popper.min.js">
       <publishTime>06/21/2020 23:28:37</publishTime>
     </File>
+    <File Include="Views/Consultas/RegistrarConsulta.cshtml">
+      <publishTime>06/30/2020 01:16:48</publishTime>
+    </File>
     <File Include="Views/Home/About.cshtml">
-      <publishTime>06/21/2020 12:35:02</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
-      <publishTime>06/21/2020 12:35:02</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>06/21/2020 18:29:31</publishTime>
+      <publishTime>06/26/2020 17:19:27</publishTime>
     </File>
     <File Include="Views/Home/Menu.cshtml">
-      <publishTime>06/22/2020 01:39:26</publishTime>
+      <publishTime>06/26/2020 17:19:46</publishTime>
+    </File>
+    <File Include="Views/Home/SinPermiso.cshtml">
+      <publishTime>06/26/2020 21:05:44</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
-      <publishTime>06/21/2020 12:35:02</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>06/24/2020 20:18:09</publishTime>
+      <publishTime>06/26/2020 17:17:18</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>06/21/2020 12:35:02</publishTime>
@@ -5530,7 +5557,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/21/2020 18:02:00</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/21/2020 12:42:51</publishTime>
+      <publishTime>06/26/2020 04:32:42</publishTime>
     </File>
   </ItemGroup>
 </Project>
