@@ -60,10 +60,10 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <div class="form-group">
                             <label for="modalNuevaCitaTelefono"><i class="fa fa-user"></i>&nbsp;Teléfono</label>
-                            <input id="modalNuevaCitaTelefono" type="number" class="form-control form-control-sm nuevacitanum upptxt" placeholder="Teléfono" autocomplete="off">
+                            <input id="modalNuevaCitaTelefono" type="number" class="form-control form-control-sm nuevacitanum upptxt" maxlength="10" placeholder="Teléfono" autocomplete="off">
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -78,6 +78,7 @@
                             <label for="modalNuevaCitaEmailSi">&nbsp;Notificar por Email</label>
                         </div>
                     </div>
+                    <div id="modalNuevaCitaDivDesbloquear" class="col-sm-1"></div>
                 </div>
                 <div class="row">
                     <div class="col-sm-5">
@@ -105,6 +106,29 @@
             <div class="modal-footer">
                 <button id="modalNuevaCitaGuardar" type="button" class="btn btn-sm btn-success"><i class="fa fa-save"></i> Guardar Cita</button>
                 <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal"><i class="fa fa-times-circle"></i> Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modalReenviarMailCita" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Reenviar Mail</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="modalReenviarMailCitaCorreo"><i class="fa fa-at"></i>&nbsp;Correo Electrónico</label>
+                            <input id="modalReenviarMailCitaCorreo" type="text" class="form-control form-control-sm nuevacitatxt" placeholder="Correo Electrónico" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="modalReenviarMailCitaEnviar" type="button" class="btn btn-sm btn-info"><i class="fa fa-envelope"></i> Enviar Email</button>
+                <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Cancelar</button>
             </div>
         </div>
     </div>

@@ -1,13 +1,16 @@
 ﻿// :::::::::::::::::::::::: VARIABLES GLOBALES ::::::::::::::::::::::::
 var TablaCitasHTML;
+var CitasListaJSON = [];
 var EspecialidadesMedicosJSON = {};
 var HorariosMedicosJSON = [];
 var MedicoHorarioNCitaJSON = {};
 var MedicoHorasDispNCitaJSON = [];
+var IdCitaConsultaGLOBAL = 0;
 var IdMedicoNuevaCitaGLOBAL = 0;
 var IdPacienteNuevaCitaGLOBAL = 0;
 var MedicoCitasHrsARR = [];
 var CitaAltaJSON = {};
+var PagoConsultaJSON = {};
 
 // :::::::::::::::::::::::: DOCUMENTS - INPUTS ::::::::::::::::::::::::
 
@@ -31,6 +34,7 @@ $(document).on('change', '#modalNuevaCitaEmailSi', function () {
     } else {
         $('#modalNuevaCitaEmail').attr("disabled", true);
         $('#modalNuevaCitaEmail').blur();
+        $('#modalNuevaCitaEmail').val('');
     }
 });
 
@@ -97,7 +101,6 @@ $(document).on('click', '#modalNuevaCitaGuardar', function () {
                         LoadingOn("Guardando Cita...");
                     },
                     success: function (data) {
-                        console.log(data);
                         if (data.AltaCita === "true") {
                             $('#modalNuevaCita').modal('hide');
                             LoadingOff();
@@ -120,41 +123,89 @@ $(document).on('click', '#modalNuevaCitaGuardar', function () {
         });
     }
 });
+
+// DOCUMENT - BOTON QUE REENVIA EL CORREO
+$(document).on('click', '#modalReenviarMailCitaEnviar', function () {
+    if (veriFormReenviarCorreoCita()) {
+        MsgPregunta("Reenviar Mail", "¿Desea continuar?", function (si) {
+            if (si) {
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/x-www-form-urlencoded",
+                    url: "/Consultas/ReenviarMailCita",
+                    data: { CitaInfo: CitaAltaJSON },
+                    beforeSend: function () {
+                        LoadingOn("Reenviando Email...");
+                    },
+                    success: function (data) {
+                        if (data === "true") {
+                            $('#modalReenviarMailCita').modal('hide');
+                            LoadingOff();
+                            MsgAlerta("Ok!", "Correo enviado <b>correctamente</b>", 2500, "success");
+                        } else {
+                            errLog("E010", data);
+                        }
+                    },
+                    error: function (error) {
+                        errLog("E010", error);
+                    }
+                });
+            }
+        });
+    }
+});
+
+// DOCUMENT - BOTON QUE CONTROLA EL REESTABLECIMIENTO DEL FOMULARIO DE ALTA DE CITAS
+$(document).on('click', '#modalNuevaCitaFormDesbloquear', function () {
+    MsgPregunta("Liberar Formulario", "¿Desea continuar?", function (si) {
+        if (si) {
+            IdPacienteNuevaCitaGLOBAL = 0;
+            $('.nuevacitatxt').val('').removeAttr("disabled");
+            $('.nuevacitanum').val('').removeAttr("disabled");
+            $('#modalNuevaCitaEmailSi').prop("checked", false);
+            $('#modalNuevaCitaEmail').attr("disabled", true);
+            $('#modalNuevaCitaDivDesbloquear').html('');
+            $('#modalNuevaCitaNombre').focus();
+        }
+    });
+});
 // ----------------- REGISTRO DE CONSULTAS -----------------
+
+// -------------------- PAGO DE CONSULTAS --------------------
+// DOCUMENT - BOTON QUE GUARDA EL PAGO DE  LA CONSULTA
+$(document).on('click', '#modalPagarConsultaPagar', function () {
+    if (veriFormPagoConsulta()) {
+        MsgPregunta("Pagar Consulta", "¿Desea continuar?", function (si) {
+            if (si) {
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/x-www-form-urlencoded",
+                    url: "/Consultas/AltaPagoConsulta",
+                    data: { PagoConsulta: PagoConsultaJSON },
+                    beforeSend: function () {
+                        LoadingOn("Realizando Pago...");
+                    },
+                    success: function (data) {
+                        if (data === "true") {
+                            $('#modalPagarConsulta').modal('hide');
+                            llenarPagosConsultaTabla(true, ["Ok!", "Pago <b>registrado correctamente</b>", 2000, "success"]);
+                        } else {
+                            errLog("E012", data);
+                        }
+                    },
+                    error: function (error) {
+                        errLog("E012", error);
+                    }
+                });
+            }
+        });
+    }
+});
+// -------------------- PAGO DE CONSULTAS --------------------
 
 // :::::::::::::::::::::::: FUNCIONES GLOBALES ::::::::::::::::::::::::
 
 // ----------------- REGISTRO DE CONSULTAS -----------------
-// FUNCION QUE CARGA LA LISTA COMPLETA DE CITAS (SOLO DEL DIA ACTUAL EN ADELANTE)
-function cargarListaCitas(alta, msg) {
-    $.ajax({
-        type: "POST",
-        contentType: "application/x-www-form-urlencoded",
-        url: "/Consultas/ConsCitas",
-        dataType: 'JSON',
-        beforeSend: function () {
-            LoadingOn("Cargando Citas...");
-        },
-        success: function (data) {
-            if (data.CitasTabla !== undefined) {
-                console.log(data);
-                TablaCitasHTML.clear().draw();
-                TablaCitasHTML.rows.add(data.CitasTabla);
-                TablaCitasHTML.columns.adjust().draw();
-                LoadingOff();
-                if (alta) {
-                    MsgAlerta(msg[0], msg[1], msg[2], msg[3]);
-                }
-            } else {
-                errLog("E008", data.responseText);
-            }
-        },
-        error: function (error) {
-            errLog("E008", error.responseText);
-        }
-    });
-}
-
 // FUNCION INICIAL DE REGISTRO DE CONSULTAS
 function iniRegistrarConsulta() {
     $.ajax({
@@ -205,16 +256,23 @@ function iniRegistrarConsulta() {
                 });
                 $('#modalNuevaCita').on('shown.bs.modal', function (e) {
                     IdPacienteNuevaCitaGLOBAL = 0;
-                    $('.nuevacitatxt').val('');
-                    $('.nuevacitanum').val('');
+                    $('.nuevacitatxt').val('').removeAttr("disabled");
+                    $('.nuevacitanum').val('').removeAttr("disabled");
                     $('.nuevacitasel').val('-1');
-                    $('#modalNuevaCitaNombre').focus();
                     $('#modalNuevaCitaEmailSi').attr("checked", false);
                     $('#modalNuevaCitaEmail').attr("disabled", true);
+                    $('#modalNuevaCitaDivDesbloquear').html('');
                     LoadingOff();
+                    $('#modalNuevaCitaNombre').focus();
+
+                    ejecutarModalBusqPaciente = true;
+                    ejecutarFuncqBusqPaciente = "llenarCamposCitaBusq";
                 });
                 $('#modalNuevaCita').on('hidden.bs.modal', function (e) {
                     $('#modalNuevaCitaDivMedicoParams').html(nuevaCitaSinParamsMedico);
+
+                    ejecutarModalBusqPaciente = false;
+                    ejecutarFuncqBusqPaciente = "";
                 });
                 LoadingOff();
             } else {
@@ -223,6 +281,36 @@ function iniRegistrarConsulta() {
         },
         error: function (error) {
             errLog("E005", error.responseText);
+        }
+    });
+}
+
+// FUNCION QUE CARGA LA LISTA COMPLETA DE CITAS (SOLO DEL DIA ACTUAL EN ADELANTE)
+function cargarListaCitas(alta, msg) {
+    $.ajax({
+        type: "POST",
+        contentType: "application/x-www-form-urlencoded",
+        url: "/Consultas/ConsCitas",
+        dataType: 'JSON',
+        beforeSend: function () {
+            LoadingOn("Cargando Citas...");
+        },
+        success: function (data) {
+            if (data.CitasTabla !== undefined) {
+                TablaCitasHTML.clear().draw();
+                TablaCitasHTML.rows.add(data.CitasTabla);
+                TablaCitasHTML.columns.adjust().draw();
+                CitasListaJSON = data.ListaCitas;
+                LoadingOff();
+                if (alta) {
+                    MsgAlerta(msg[0], msg[1], msg[2], msg[3]);
+                }
+            } else {
+                errLog("E008", data.responseText);
+            }
+        },
+        error: function (error) {
+            errLog("E008", error.responseText);
         }
     });
 }
@@ -286,6 +374,73 @@ function iniciarNuevaCitaPanel() {
     }
 }
 
+// FUNCION QUE REENVIA UN EMAIL DE UNA CITA ABRIENDO MODAL
+function reenviarCorreoCita(id) {
+    LoadingOn("Espere...");
+    var correo = "";
+    $(CitasListaJSON).each(function (key, value) {
+        if (value.IdCitaRegistro === parseInt(id)) {
+            correo = value.Correo;
+            CitaAltaJSON = value;
+            CitaAltaJSON.FechaHoraCitaTxt = reloj12hrs(value.HoraCita);
+            return false;
+        }
+    });
+    $('#modalReenviarMailCitaCorreo').val((correo !== "--") ? correo : "");
+    $('#modalReenviarMailCita').modal('show');
+    $('#modalReenviarMailCita').on('shown.bs.modal', function (e) {
+        LoadingOff();
+    });
+}
+
+// FUNCION QUE CANCELA UNA CITA
+function cancelarCita(id) {
+    MsgPregunta("Cancelar Cita", "¿Desea continuar?", function (si) {
+        if (si) {
+            $.ajax({
+                type: "POST",
+                contentType: "application/x-www-form-urlencoded",
+                url: "/Consultas/ElimCita",
+                data: { IDCita: id },
+                beforeSend: function () {
+                    LoadingOn("Cancelando Cita...");
+                },
+                success: function (data) {
+                    if (data === "true") {
+                        cargarListaCitas(true, ["Ok!", "Cita cancelada <b>correctamente</b>", 2500, "success"]);
+                    } else {
+                        errLog("E009", data);
+                    }
+                },
+                error: function (error) {
+                    errLog("E009", error);
+                }
+            });
+        }
+    });
+}
+
+// BUSQUEDA - FUNCION QUE LLENA LOS CAMPOS DEL FORMULARIO DE CITAS
+function llenarCamposCitaBusq() {
+    IdPacienteNuevaCitaGLOBAL = pacienteBusqSelectJSON.IdPaciente;
+    $('#modalNuevaCitaNombre').val(pacienteBusqSelectJSON.Nombre);
+    $('#modalNuevaCitaApellidoP').val(pacienteBusqSelectJSON.ApellidoP);
+    $('#modalNuevaCitaApellidoM').val(pacienteBusqSelectJSON.ApellidoM);
+    $('#modalNuevaCitaTelefono').val(pacienteBusqSelectJSON.Telefono);
+    $('.nuevacitatxt').attr("disabled", true);
+    $('.nuevacitanum').attr("disabled", true);
+    if (pacienteBusqSelectJSON.Correo !== "--") {
+        $('#modalNuevaCitaEmailSi').prop("checked", true);
+        $('#modalNuevaCitaEmail').removeAttr("disabled");
+        $('#modalNuevaCitaEmail').val(pacienteBusqSelectJSON.Correo);
+    } else {
+        $('#modalNuevaCitaEmailSi').prop("checked", false);
+        $('#modalNuevaCitaEmail').attr("disabled", true);
+        $('#modalNuevaCitaEmail').val('');
+    }
+    $('#modalNuevaCitaDivDesbloquear').html('<button id="modalNuevaCitaFormDesbloquear" class="btn btn-sm btn-primary" style="margin-top: 20px;" title="Desbloquear Formulario"><i class="fa fa-broom"></i></button>');
+}
+
 // -----  VALIDACIONES
 // FUNCION QUE VALIDA LA INCERSION DE UNA HORA PARA UNA NUEVA CITA
 function veriFormHrNuevaCita() {
@@ -345,6 +500,14 @@ function veriFormNuevaCita() {
         correcto = false;
         msg = 'Coloque el <b>Correo Electronico</b>';
         $('#modalNuevaCitaEmail').focus();
+    } else if ($('#modalNuevaCitaTelefono').val() === "") {
+        correcto = false;
+        msg = 'Coloque el <b>Telefono</b>';
+        $('#modalNuevaCitaTelefono').focus();
+    } else if (isNaN($('#modalNuevaCitaTelefono').val())) {
+        correcto = false;
+        msg = 'El formato del <b>Telefono no es válido</b>';
+        $('#modalNuevaCitaTelefono').focus();
     } else if ($('#modalNuevaCitaEmailSi').is(":checked") && !esEmail($('#modalNuevaCitaEmail').val())) {
         correcto = false;
         msg = 'El formato del <b>Correo Electronico es Incorrecto</b>';
@@ -372,18 +535,138 @@ function veriFormNuevaCita() {
                 IdMedico: IdMedicoNuevaCitaGLOBAL,
                 IdPaciente: IdPacienteNuevaCitaGLOBAL,
                 NombrePaciente: $('#modalNuevaCitaNombre').val().toUpperCase().trim() + " " + $('#modalNuevaCitaApellidoP').val().toUpperCase().trim() + " " + $('#modalNuevaCitaApellidoM').val().trim().toUpperCase(),
+                Telefono: $('#modalNuevaCitaTelefono').val(),
                 HoraCita: $('#modalNuevaCitaHora').val(),
                 FechaCita: $('#modalNuevaCitaFecha').val(),
                 FechaHoraCita: $('#modalNuevaCitaFecha').val() + " " + $('#modalNuevaCitaHora').val() + ":00",
                 Correo: ($('#modalNuevaCitaEmailSi').is(":checked")) ? $('#modalNuevaCitaEmail').val() : "--",
                 FechaHoraCitaTxt: reloj12hrs($('#modalNuevaCitaHora').val()),
                 FechaCitaTxt: $('#modalNuevaCitaMedico option:selected').text().trim().toUpperCase(),
+                Nombre: ($('#modalNuevaCitaNombre').val().trim() !== "") ? $('#modalNuevaCitaNombre').val().toUpperCase().trim() : "--",
+                ApellidoP: ($('#modalNuevaCitaApellidoP').val().trim() !== "") ? $('#modalNuevaCitaApellidoP').val().toUpperCase().trim() : "--",
+                ApellidoM: ($('#modalNuevaCitaApellidoM').val().trim() !== "") ? $('#modalNuevaCitaApellidoM').val().toUpperCase().trim() : "--",
             };
         }
     }
     return correcto;
 }
+
+// FUNCION QUE VALIDA EL FORMULARIO DE REENVIO DE CORREO DE CITA
+function veriFormReenviarCorreoCita() {
+    var correcto = true, msg = '';
+    if ($('#modalReenviarMailCitaCorreo').val() === "") {
+        correcto = false;
+        msg = 'Coloque el <b>Correo Electrónico</b>';
+        $('#modalReenviarMailCitaCorreo').focus();
+    } else if (!esEmail($('#modalReenviarMailCitaCorreo').val())) {
+        correcto = false;
+        msg = 'El formato del <b>Correo Electrónico es Incorrecto</b>';
+        $('#modalReenviarMailCitaCorreo').focus();
+    } else {
+        CitaAltaJSON.Correo = $('#modalReenviarMailCitaCorreo').val();
+    }
+    if (!correcto) {
+        MsgAlerta("Atención!", msg, 2900, "default");
+    }
+    return correcto;
+}
 // ----------------- REGISTRO DE CONSULTAS -----------------
+
+// -------------------- PAGO DE CONSULTAS --------------------
+// FUNCION INICIAL DE PAGOS DE CONSULTAS
+function iniPagarConsulta() {
+    llenarPagosConsultaTabla(false, []);
+}
+
+// FUNCION QUE LLENA LA TABLA DE LAS CONSULTAS PARA  PAGAR
+function llenarPagosConsultaTabla(alta, msg) {
+    $.ajax({
+        type: "POST",
+        contentType: "application/x-www-form-urlencoded",
+        url: "/Consultas/ConCitasPagar",
+        dataType: 'JSON',
+        beforeSend: function () {
+            LoadingOn("Cargando Consultas...");
+        },
+        success: function (data) {
+            if (data.CitasTabla !== undefined) {
+                if (alta) {
+                    TablaCitasHTML.clear().draw();
+                    TablaCitasHTML.rows.add(data.CitasTabla);
+                    TablaCitasHTML.columns.adjust().draw();
+                    CitasListaJSON = data.ListaCitas;
+                    MsgAlerta(msg[0], msg[1], msg[2], msg[3]);
+                } else {
+                    TablaCitasHTML = $('#tablaCitasPagos').DataTable({
+                        scrollY: "70vh",
+                        data: data.CitasTabla,
+                        columns: [
+                            { title: "Hora" },
+                            { title: "Fecha" },
+                            { title: "Nombre Paciente" },
+                            { title: "Nombre Médico" },
+                            { title: "Opciones", "orderable": false }
+                        ],
+                        info: false,
+                        search: true,
+                        "search": {
+                            "regex": true
+                        }
+                    });
+                }
+
+                $('#modalPagarConsulta').on('shown.bs.modal', function () {
+                    $('#modalPagarConsultaMonto').val('500.00').attr("disabled", true);
+                    $('#modalPagarConsultaPago').val('').focus();
+                    $('#modalPagarConsultaTipo').val("1");
+                    LoadingOff();
+                });
+                LoadingOff();
+            } else {
+                errLog("E011", data.responseText);
+            }
+        },
+        error: function (error) {
+            errLog("E011", error.responseText);
+        }
+    });
+}
+
+// FUNCION QUE ABRE UN MODAL PARA PAGAR UNA CONSULTA
+function pagarConsulta(id) {
+    IdCitaConsultaGLOBAL = id;
+    LoadingOn("Espere...");
+    $('#modalPagarConsulta').modal('show');
+}
+
+// -----  VALIDACIONES
+// FUNCION QUE VALIDA EL FORMULARIO DEL PAGO DE LA CONSULTA
+function veriFormPagoConsulta() {
+    var correcto = true, msg = '';
+    if ($('#modalPagarConsultaPago').val() === "") {
+        correcto = false;
+        msg = 'Coloque el <b>Pago del Paciente</b>';
+        $('#modalPagarConsultaPago').focus();
+    } else if (isNaN(parseFloat($('#modalPagarConsultaPago').val()))) {
+        correcto = false;
+        msg = 'La cantidad del pago de el <b>Paciente es Inválido</b>';
+        $('#modalPagarConsultaPago').focus();
+    } else if (parseFloat($('#modalPagarConsultaPago').val()) < parseFloat($('#modalPagarConsultaMonto').val())) {
+        correcto = false;
+        msg = 'El pago de el <b>Paciente es Incorrecto</b>';
+        $('#modalPagarConsultaPago').focus();
+    } else {
+        PagoConsultaJSON = {
+            IdConsulta: IdCitaConsultaGLOBAL,
+            MontoPago: parseFloat($('#modalPagarConsultaPago').val()),
+        };
+    }
+    if (!correcto) {
+        MsgAlerta("Atención!", msg, 2900, "default");
+    }
+    return correcto;
+}
+// -------------------- PAGO DE CONSULTAS --------------------
 
 // ::::::::::::::::::: VARIABLES DOM HTML :::::::::::::::::::
 // ----------------- REGISTRO DE CONSULTAS -----------------

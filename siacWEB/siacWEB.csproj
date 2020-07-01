@@ -140,12 +140,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ConsultasController.cs" />
+    <Compile Include="Controllers\DinamicosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="MISC.cs" />
     <Compile Include="Models\MConsultas.cs" />
+    <Compile Include="Models\MDinamicos.cs" />
     <Compile Include="Models\MHome.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQL.cs" />
@@ -1836,6 +1838,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\consultas.js" />
     <Content Include="Scripts\dataTables.bootstrap4.min.js" />
+    <Content Include="Scripts\dinamicos.js" />
     <Content Include="Scripts\errores.js" />
     <Content Include="Scripts\index.js" />
     <Content Include="Scripts\jquery.dataTables.min.js" />
@@ -1863,10 +1866,13 @@
     <Content Include="Views\Home\Menu.cshtml" />
     <Content Include="Views\Home\SinPermiso.cshtml" />
     <Content Include="Views\Consultas\RegistrarConsulta.cshtml" />
+    <Content Include="Views\Consultas\PagarConsulta.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Dinamicos\" />
     <Folder Include="Views\MConsultas\" />
+    <Folder Include="Views\MDinamicos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

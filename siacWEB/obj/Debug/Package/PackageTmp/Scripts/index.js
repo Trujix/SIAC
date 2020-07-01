@@ -5,6 +5,11 @@ var MenuOpsJSON = {
         Vista: "RegistrarConsulta",
         FuncionInicial: true,
     },
+    pagarconsulta: {
+        Controller: "Consultas",
+        Vista: "PagarConsulta",
+        FuncionInicial: true,
+    },
 }
 
 // ::::::::::::::: DOCUMENT - INPUTS GENERALES :::::::::::::::
@@ -57,6 +62,11 @@ $(document).on('click', '.child_menu li a', function () {
             }
         });
     }
+});
+
+// DOCUMENT - BOTON QUE EJECUTA UNA ACCION ESPECIAL  DE REASIGNACION DE TAMAÑO DE TABLAS AL MINIMIZAR MENU
+$(document).on('click', '.site_title', function () {
+    TablaCitasHTML.columns.adjust();
 });
 
 // ::::::::::::::: FUNCIONES GENERALES :::::::::::::::

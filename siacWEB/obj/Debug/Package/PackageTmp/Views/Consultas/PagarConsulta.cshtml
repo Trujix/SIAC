@@ -1,0 +1,76 @@
+﻿@{
+    Layout = null;
+}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="table-responsive">
+                            <table id="tablaCitasPagos" class="table table-sm table-striped table-bordered" style="width:100%"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modalPagarConsulta" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="fa fa-money-bill"></i> Pagar Consulta</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="modalPagarConsultaDivMonto">Monto a Pagar</label>
+                                        <div id="modalPagarConsultaDivMonto" class="input-group input-group-sm mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">$</span>
+                                            </div>
+                                            <input id="modalPagarConsultaMonto" type="number" class="form-control" style="text-align: center;">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="modalPagarConsultaDivPago">Pago del Paciente</label>
+                                        <div id="modalPagarConsultaDivPago" class="input-group input-group-sm mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">$</span>
+                                            </div>
+                                            <input id="modalPagarConsultaPago" type="number" class="form-control" style="text-align: center;">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <select id="modalPagarConsultaTipo" class="form-control form-control-sm">
+                                        <option value="1">En Efectivo</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-12" style="padding-top: 5px;">
+                                    <button id="modalPagarConsultaPagar" class="btn btn-sm btn-success btn-block"><i class="fa fa-dollar-sign"></i> Pagar Consulta</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>

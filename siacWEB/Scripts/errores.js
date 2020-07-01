@@ -52,4 +52,29 @@ var ErrorLogJSON = {
         Detalle: "Cargando Lista Citas",
         ErrorReciente: "",
     },
+    E009: {
+        Detalle: "Cancelando Citas",
+        ErrorReciente: "",
+    },
+    E010: {
+        Detalle: "Reenviar Mail Cita",
+        ErrorReciente: "",
+    },
+    E011: {
+        Detalle: "Cargar Lista Citas Pagar",
+        ErrorReciente: "",
+    },
+    E012: {
+        Detalle: "Pago Consulta",
+        ErrorReciente: "",
+    },
+
+    E20001: {
+        Detalle: "Consulta Dinamica Pacientes",
+        ErrorReciente: "",
+    },
+    E20002: {
+        Detalle: "Consulta Dinamica Pacientes - Elecc",
+        ErrorReciente: "",
+    },
 };

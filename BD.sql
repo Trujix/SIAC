@@ -13,6 +13,8 @@ DROP TABLE IF EXISTS dbo.especialidades;
 DROP TABLE IF EXISTS dbo.medicos;
 DROP TABLE IF EXISTS dbo.horariosmedicos;
 DROP TABLE IF EXISTS dbo.citasregistros;
+DROP TABLE IF EXISTS dbo.pacientes;
+DROP TABLE IF EXISTS dbo.pagosconsultas;
 
 CREATE TABLE [dbo].[clinica](
 	[id] [int] IDENTITY(1,1) NOT NULL,
@@ -32,7 +34,7 @@ CREATE TABLE [dbo].[usuariosclinica](
 	[claveclinica] [varchar](MAX) NOT NULL DEFAULT 'ABCDE123456'/*'--'*/,
 	[direccion] [varchar](MAX) NOT NULL DEFAULT 'LA DIRECCION #123'/*'--'*/,
 	[cp] [int] NOT NULL DEFAULT 20000/*0*/,
-	[telefono] [float] NOT NULL DEFAULT 0,
+	[telefono] [float] NOT NULL DEFAULT 3131234567/**/,
 	[colonia] [varchar](MAX) NOT NULL DEFAULT 'COLONIA'/*'--'*/,
 	[localidad] [varchar](MAX) NOT NULL DEFAULT 'LOCALIDAD'/*'--'*/,
 	[estadoindx] [varchar](50) NOT NULL DEFAULT '1'/*'--'*/,
@@ -122,7 +124,32 @@ CREATE TABLE [dbo].[citasregistros](
 	[fechacita] [datetime] NOT NULL,
 	[fechahoracita] [datetime] NOT NULL,
 	[correo] [varchar](200) NOT NULL,
+	[pagada] [bit] NOT NULL DEFAULT 'False',
 	[fechahora] [datetime] NULL,
 	[admusuario] [varchar](50) NULL,
 		CONSTRAINT [PK_CitasRegistrosID] PRIMARY KEY CLUSTERED ([id] ASC)
+);
+
+CREATE TABLE [dbo].[pacientes](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[idclinica] [int] NOT NULL,
+	[nombre] [varchar](200) NOT NULL,
+	[apellidop] [varchar](200) NOT NULL,
+	[apellidom] [varchar](200) NOT NULL,
+	[telefono] [float] NOT NULL,
+	[correo] [varchar](200) NOT NULL,
+	[activo] [bit] NOT NULL DEFAULT 'True',
+	[fechahora] [datetime] NULL,
+	[admusuario] [varchar](50) NULL,
+		CONSTRAINT [PK_PacienteID] PRIMARY KEY CLUSTERED ([id] ASC)
+);
+
+CREATE TABLE [dbo].[pagosconsultas](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[idclinica] [int] NOT NULL,
+	[idconsulta] [int] NOT NULL,
+	[montopago] [float] NOT NULL,
+	[fechahora] [datetime] NULL,
+	[admusuario] [varchar](50) NULL,
+		CONSTRAINT [PK_PagosConsultasID] PRIMARY KEY CLUSTERED ([id] ASC)
 );

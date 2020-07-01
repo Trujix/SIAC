@@ -51,6 +51,7 @@ namespace siacWEB
             bundles.Add(new ScriptBundle("~/bundles/menu").Include(
                       "~/Scripts/menuscroll.min.js",
                       "~/Scripts/menu.min.js",
+                      "~/Scripts/dinamicos.js",
                       "~/Scripts/index.js",
                       "~/Scripts/consultas.js"));
         }

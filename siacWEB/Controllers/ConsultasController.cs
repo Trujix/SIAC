@@ -14,10 +14,23 @@ namespace siacWEB.Controllers
         MConsultas MiConsulta = new MConsultas();
 
         // ::::::::::::::: VISTAS :::::::::::::::
-        // FUNCION QUE DEVUELVE LA VISTA DEL REGISTRO A UNA CONSULTA MEDICA
+        // FUNCION QUE DEVUELVE LA VISTA DEL REGISTRO A UNA CONSULTA MEDICA [ REGISTRO DE CONSULTAS ]
         public ActionResult RegistrarConsulta()
         {
             if ((bool)Session["registroconsulta"])
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("SinPermiso", "Home");
+            }
+        }
+
+        // FUNCION QUE DEVUELVE LA VISTA PARA PAGAR CONSULTA MEDICA [ PAGO DE CONSULTAS ]
+        public ActionResult PagarConsulta()
+        {
+            if ((bool)Session["pagarconsulta"])
             {
                 return View();
             }
@@ -63,6 +76,32 @@ namespace siacWEB.Controllers
             };
             return JsonConvert.SerializeObject(NuevaCita);
         }
+
+        // FUNCION QUE REENVIA EL MAIL DE UNA CITA
+        public string ReenviarMailCita(MConsultas.CitasRegistros CitaInfo)
+        {
+            return MISC.EnviarMail(0, CitaInfo.Correo, new string[] { CitaInfo.NombrePaciente, CitaInfo.FechaHoraCitaTxt, CitaInfo.FechaCitaTxt.ToUpper(), CitaInfo.NombreMedico.ToUpper() });
+        }
+
+        // FUNCION QUE ELIMINA/CANCELA UNA CITA
+        public string ElimCita(int IDCita)
+        {
+            return MiConsulta.ElimCita(IDCita, (int)Session["IdClinica"]);
+        }
         // ------------ REGISTRO DE CONSULTAS ------------
+
+        // --------------- PAGAR CONSULTAS ---------------
+        // FUNCION QUE DEVUELVE LA LISTA DE CITAS PENDIENTES DE PAGO
+        public string ConCitasPagar()
+        {
+            return MiConsulta.ConCitasPagar((int)Session["IdClinica"]);
+        }
+
+        // FUNCION QUE REALIZA EL PAGO DE LA CONSULTA
+        public string AltaPagoConsulta(MConsultas.PagoConsultas PagoConsulta)
+        {
+            return MiConsulta.AltaPagoConsulta(PagoConsulta, MISC.TokenUsuario(), (int)Session["IdClinica"]);
+        }
+        // --------------- PAGAR CONSULTAS ---------------
     }
 }

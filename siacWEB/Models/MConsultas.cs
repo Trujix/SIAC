@@ -12,6 +12,7 @@ namespace siacWEB.Models
     public class MConsultas : Controller
     {
         // ::::::::::::::: CLASES Y VARIABLES :::::::::::::::
+        // ---- REGISTRO DE CONSULTAS
         // CLASE DE ESPECIALIDADES
         public class EspecialidadesCitas
         {
@@ -45,6 +46,10 @@ namespace siacWEB.Models
             public int IdMedico { get; set; }
             public int IdPaciente { get; set; }
             public string NombrePaciente { get; set; }
+            public string Nombre { get; set; }
+            public string ApellidoP { get; set; }
+            public string ApellidoM { get; set; }
+            public double Telefono { get; set; }
             public string NombreMedico { get; set; }
             public string HoraCita { get; set; }
             public DateTime FechaCita { get; set; }
@@ -53,6 +58,14 @@ namespace siacWEB.Models
             public string FechaHoraCitaTxt { get; set; }
             public bool EnviarCorreo { get; set; }
             public string Correo { get; set; }
+        }
+        // ---- PAGO DE CONSULTAS
+        // CLASE DE PAGO DE CONSULTAS
+        public class PagoConsultas
+        {
+            public int IdPagoConsulta { get; set; }
+            public int IdConsulta { get; set; }
+            public double MontoPago { get; set; }
         }
 
         // ::::::::::::::: FUNCIONES GENERALES :::::::::::::::
@@ -178,7 +191,7 @@ namespace siacWEB.Models
                                 DateTime.Parse(lector["fechacita"].ToString()).ToString("dddd, dd MMMM yyyy").ToUpper(),
                                 lector["nombrepaciente"].ToString(),
                                 lector["nombremedico"].ToString().ToUpper(),
-                                "<button class='btn badge badge-pill badge-warning' title='Reagendar Cita' onclick='reagendarCita(" + lector["id"].ToString() + ");'><i class='fa fa-edit'></i></button>&nbsp;<button class='btn badge badge-pill badge-dark' title='Reenviar Correo' onclick='reenviarCorreoCita(" + lector["id"].ToString() + ");'><i class='fa fa-edit'></i></button>&nbsp;<button class='btn badge badge-pill badge-danger' title='Cancelar Cita' onclick='cancelarCita(" + lector["id"].ToString() + ");'><i class='fa fa-trash'></i></button>",
+                                !bool.Parse(lector["pagada"].ToString()) ? "<button class='btn badge badge-pill badge-warning' title='Reagendar Cita'" + " onclick='reagendarCita(" + lector["id"].ToString() + ");'><i class='fa fa-edit'></i></button>&nbsp;<button name='cita" + lector["id"].ToString() + "' class='btn badge badge-pill badge-dark' title='Reenviar Correo'" + " onclick='reenviarCorreoCita(" + lector["id"].ToString() + ");'><i class='fa fa-envelope'></i></button>&nbsp;<button class='btn badge badge-pill badge-danger' title='Cancelar Cita'" + " onclick='cancelarCita(" + lector["id"].ToString() + ");'><i class='fa fa-trash'></i></button>" : "<button class='btn badge badge-pill badge-success'><i class='fa fa-check-circle'></i> Consulta Concluida</button>",
                             }
                         );
                     }
@@ -258,6 +271,44 @@ namespace siacWEB.Models
             try
             {
                 SQL.comandoSQLTrans("AltaCita");
+                if(citainfo.IdPaciente == 0)
+                {
+                    SQL.commandoSQL = new SqlCommand("SELECT * FROM dbo.pacientes WHERE idclinica = @IDClinicaParam AND nombre = @NombreParam AND apellidop = @ApellidoPParam AND apellidom = @ApellidoMParam", SQL.conSQL, SQL.transaccionSQL);
+                    SqlParameter[] verifPaciente =
+                    {
+                        new SqlParameter("@IDClinicaParam", SqlDbType.Int) { Value = idclinica },
+                        new SqlParameter("@NombreParam", SqlDbType.VarChar) { Value = citainfo.Nombre },
+                        new SqlParameter("@ApellidoPParam", SqlDbType.VarChar) { Value = citainfo.ApellidoP },
+                        new SqlParameter("@ApellidoMParam", SqlDbType.VarChar) { Value = citainfo.ApellidoM },
+                    };
+                    SQL.commandoSQL.Parameters.AddRange(verifPaciente);
+                    using (var lector = SQL.commandoSQL.ExecuteReader())
+                    {
+                        while (lector.Read())
+                        {
+                            citainfo.IdPaciente = int.Parse(lector["id"].ToString());
+                        }
+                    }
+
+                    if(citainfo.IdPaciente == 0)
+                    {
+                        SQL.commandoSQL = new SqlCommand("INSERT INTO dbo.pacientes (idclinica, nombre, apellidop, apellidom, telefono, correo, fechahora, admusuario) VALUES (@IDClinicaParam, @NombreParam, @ApellidoPParam, @ApellidoMParam, @TelefonoParam, @CorreoParam, @FechaHoraParam, (SELECT usuario FROM dbo.usuarios WHERE tokenusuario = @TokenParam))", SQL.conSQL, SQL.transaccionSQL);
+                        SqlParameter[] altaPaciente =
+                        {
+                            new SqlParameter("@IDClinicaParam", SqlDbType.Int) { Value = idclinica },
+                            new SqlParameter("@NombreParam", SqlDbType.VarChar) { Value = citainfo.Nombre },
+                            new SqlParameter("@ApellidoPParam", SqlDbType.VarChar) { Value = citainfo.ApellidoP },
+                            new SqlParameter("@ApellidoMParam", SqlDbType.VarChar) { Value = citainfo.ApellidoM },
+                            new SqlParameter("@TelefonoParam", SqlDbType.Float) { Value = citainfo.Telefono },
+                            new SqlParameter("@CorreoParam", SqlDbType.VarChar) { Value = citainfo.Correo },
+                            new SqlParameter("@FechaHoraParam", SqlDbType.DateTime) { Value = MISC.FechaHoy() },
+                            new SqlParameter("@TokenParam", SqlDbType.VarChar) { Value = tokenusuario },
+                        };
+                        SQL.commandoSQL.Parameters.AddRange(altaPaciente);
+                        SQL.commandoSQL.ExecuteNonQuery();
+                    }
+                }
+
                 SQL.commandoSQL = new SqlCommand("INSERT INTO dbo.citasregistros (idclinica, idmedico, idpaciente, nombrepaciente, horacita, fechacita, fechahoracita, correo, fechahora, admusuario) VALUES (@IDClinicaParam, @IDMedicoParam, @IDPacienteParam, @NombrePacienteParam, @HoraCitaParam, @FechaCitaParam, @FechaHoraCitaParam, @CorreoParam, @FechaHoraParam, (SELECT usuario FROM dbo.usuarios WHERE tokenusuario = @TokenParam))", SQL.conSQL, SQL.transaccionSQL);
                 SqlParameter[] altaNuevaCita =
                 {
@@ -270,7 +321,7 @@ namespace siacWEB.Models
                     new SqlParameter("@FechaHoraCitaParam", SqlDbType.DateTime) { Value = citainfo.FechaHoraCita },
                     new SqlParameter("@CorreoParam", SqlDbType.VarChar) { Value = citainfo.Correo },
                     new SqlParameter("@FechaHoraParam", SqlDbType.DateTime) { Value = MISC.FechaHoy() },
-                    new SqlParameter("@TokenParam", SqlDbType.VarChar) { Value = citainfo.FechaCita },
+                    new SqlParameter("@TokenParam", SqlDbType.VarChar) { Value = tokenusuario },
                 };
                 SQL.commandoSQL.Parameters.AddRange(altaNuevaCita);
                 SQL.commandoSQL.ExecuteNonQuery();
@@ -288,6 +339,145 @@ namespace siacWEB.Models
                 SQL.conSQL.Close();
             }
         }
+
+        // FUNCION QUE ELIMINA/CANCELA UNA CITA
+        public string ElimCita(int idcita, int idclinica)
+        {
+            try
+            {
+                SQL.comandoSQLTrans("ElimCita");
+                SQL.commandoSQL = new SqlCommand("DELETE FROM dbo.citasregistros WHERE idclinica = @IDClinicaParam AND id = @IDCitaParam", SQL.conSQL, SQL.transaccionSQL);
+                SqlParameter[] eliminarCita =
+                {
+                    new SqlParameter("@IDClinicaParam", SqlDbType.Int) { Value = idclinica },
+                    new SqlParameter("@IDCitaParam", SqlDbType.Int) { Value = idcita },
+                };
+                SQL.commandoSQL.Parameters.AddRange(eliminarCita);
+                SQL.commandoSQL.ExecuteNonQuery();
+
+                SQL.transaccionSQL.Commit();
+                return "true";
+            }
+            catch (Exception e)
+            {
+                SQL.transaccionSQL.Rollback();
+                return e.ToString();
+            }
+            finally
+            {
+                SQL.conSQL.Close();
+            }
+        }
         // ------------ REGISTRO DE CONSULTAS ------------
+
+        // --------------- PAGAR CONSULTAS ---------------
+        // FUNCION QUE DEVUELVE LA LISTA DE CITAS PENDIENTES DE PAGO
+        public string ConCitasPagar(int idclinica)
+        {
+            try
+            {
+                SQL.comandoSQLTrans("ConCitasPagar");
+                DateTime Hoy = MISC.FechaHoy();
+                List<CitasRegistros> ListaCitas = new List<CitasRegistros>();
+                List<string[]> CitasTabla = new List<string[]>();
+                SQL.commandoSQL = new SqlCommand("SELECT C.*, (M.nombre + ' ' + M.apellido) AS nombremedico FROM dbo.citasregistros C JOIN dbo.medicos M ON M.id = C.idmedico WHERE C.fechacita = @FechaCitaParam AND C.idclinica = @IDClinicaParam AND C.pagada = 'False'", SQL.conSQL, SQL.transaccionSQL);
+                SqlParameter[] consultaCitasMedicoRegistro =
+                {
+                    new SqlParameter("@FechaCitaParam", SqlDbType.DateTime) { Value = new DateTime(Hoy.Year, Hoy.Month, Hoy.Day) },
+                    new SqlParameter("@IDClinicaParam", SqlDbType.Int) { Value = idclinica },
+                };
+                SQL.commandoSQL.Parameters.AddRange(consultaCitasMedicoRegistro);
+                using (var lector = SQL.commandoSQL.ExecuteReader())
+                {
+                    while (lector.Read())
+                    {
+                        ListaCitas.Add(new CitasRegistros()
+                        {
+                            IdCitaRegistro = int.Parse(lector["id"].ToString()),
+                            IdMedico = int.Parse(lector["idmedico"].ToString()),
+                            NombreMedico = lector["nombremedico"].ToString(),
+                            IdPaciente = int.Parse(lector["idpaciente"].ToString()),
+                            NombrePaciente = lector["nombrepaciente"].ToString(),
+                            HoraCita = lector["horacita"].ToString(),
+                            FechaCita = DateTime.Parse(lector["fechacita"].ToString()),
+                            FechaHoraCita = DateTime.Parse(lector["fechahoracita"].ToString()),
+                            FechaCitaTxt = DateTime.Parse(lector["fechacita"].ToString()).ToString("dddd, dd MMMM yyyy"),
+                            FechaHoraCitaTxt = DateTime.Parse(lector["fechahoracita"].ToString()).ToString("dddd, dd MMMM yyyy hh:mm tt"),
+                            Correo = lector["correo"].ToString(),
+                        });
+                        CitasTabla.Add(
+                            new string[]
+                            {
+                                DateTime.Parse(lector["fechahoracita"].ToString()).ToString("hh:mm tt"),
+                                DateTime.Parse(lector["fechacita"].ToString()).ToString("dddd, dd MMMM yyyy").ToUpper(),
+                                lector["nombrepaciente"].ToString(),
+                                lector["nombremedico"].ToString().ToUpper(),
+                                "<button class='btn badge badge-pill badge-success' title='Pagar Consulta' onclick='pagarConsulta(" + lector["id"].ToString() + ");'><i class='fa fa-dollar-sign'></i>&nbsp;Pagar Consulta</button>",
+                            }
+                        );
+                    }
+                }
+
+                Dictionary<string, object> CitasData = new Dictionary<string, object>()
+                {
+                    { "ListaCitas", ListaCitas },
+                    { "CitasTabla", CitasTabla },
+                };
+                SQL.transaccionSQL.Commit();
+                return JsonConvert.SerializeObject(CitasData);
+            }
+            catch (Exception e)
+            {
+                SQL.transaccionSQL.Rollback();
+                return e.ToString();
+            }
+            finally
+            {
+                SQL.conSQL.Close();
+            }
+        }
+
+        // FUNCION QUE REALIZA EL PAGO DE LA CONSULTA
+        public string AltaPagoConsulta(PagoConsultas pagoconsulta, string tokenusuario, int idclinica)
+        {
+            try
+            {
+                SQL.comandoSQLTrans("PagarConsulta");
+                SQL.commandoSQL = new SqlCommand("INSERT INTO dbo.pagosconsultas (idclinica, idconsulta, montopago, fechahora, admusuario) VALUES (@IDClinicaParam, @IDConsultaParam, @MontoPagoParam, @FechaHoraParam, (SELECT usuario FROM dbo.usuarios WHERE tokenusuario = @TokenParam))", SQL.conSQL, SQL.transaccionSQL);
+                SqlParameter[] pagoConsulta =
+                {
+                    new SqlParameter("@IDClinicaParam", SqlDbType.Int) { Value = idclinica },
+                    new SqlParameter("@IDConsultaParam", SqlDbType.Int) { Value = pagoconsulta.IdConsulta },
+                    new SqlParameter("@MontoPagoParam", SqlDbType.Float) { Value = pagoconsulta.MontoPago },
+                    new SqlParameter("@FechaHoraParam", SqlDbType.DateTime) { Value = MISC.FechaHoy() },
+                    new SqlParameter("@TokenParam", SqlDbType.VarChar) { Value = tokenusuario },
+                };
+                SQL.commandoSQL.Parameters.AddRange(pagoConsulta);
+                SQL.commandoSQL.ExecuteNonQuery();
+
+                SQL.commandoSQL = new SqlCommand("UPDATE dbo.citasregistros SET pagada = 'True', admusuario = (SELECT usuario FROM dbo.usuarios WHERE tokenusuario = @TokenParam) WHERE idclinica = @IDClinicaParam AND id = @IDConsultaParam", SQL.conSQL, SQL.transaccionSQL);
+                SqlParameter[] actualizarEstatusConsulta =
+                {
+                    new SqlParameter("@IDClinicaParam", SqlDbType.Int) { Value = idclinica },
+                    new SqlParameter("@IDConsultaParam", SqlDbType.Int) { Value = pagoconsulta.IdConsulta },
+                    new SqlParameter("@TokenParam", SqlDbType.VarChar) { Value = tokenusuario },
+                };
+                SQL.commandoSQL.Parameters.AddRange(actualizarEstatusConsulta);
+                SQL.commandoSQL.ExecuteNonQuery();
+
+                SQL.transaccionSQL.Commit();
+                return "true";
+            }
+            catch (Exception e)
+            {
+                SQL.transaccionSQL.Rollback();
+                return e.ToString();
+            }
+            finally
+            {
+                SQL.conSQL.Close();
+            }
+        }
+        // --------------- PAGAR CONSULTAS ---------------
     }
 }

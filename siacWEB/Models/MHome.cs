@@ -53,7 +53,7 @@ namespace siacWEB.Models
 
         // ARRAY DE PERFILES
         readonly string[] PerfilesArr = {
-            "registroconsulta",
+            "registroconsulta", "pagarconsulta"
         };
 
         // ::::::::::::::::::::::::: INICIO DE SESION :::::::::::::::::::::::::
