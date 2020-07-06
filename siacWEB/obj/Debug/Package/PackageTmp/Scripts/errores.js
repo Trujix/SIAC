@@ -77,4 +77,9 @@ var ErrorLogJSON = {
         Detalle: "Consulta Dinamica Pacientes - Elecc",
         ErrorReciente: "",
     },
+
+    E30001: {
+        Detalle: "Menu Usuario Info",
+        ErrorReciente: "",
+    },
 };

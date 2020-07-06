@@ -6,13 +6,13 @@
         <div class="card">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-sm-2">
+                    <div class="col-sm-4">
                         <button id="btnCargarCitas" class="btn btn-sm btn-primary btn-block"><i class="fa fa-search"></i> Cargar Citas</button>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-4">
                         <button id="btnNuevaCita" class="btn btn-sm btn-info btn-block"><i class="fa fa-plus"></i> Crear Cita</button>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-4">
                         <button class="btn btn-sm btn-secondary btn-block"><i class="fa fa-mobile-alt"></i> Ver Solicitudes</button>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                     <div class="col-sm-3">
                         <div class="form-group">
                             <label for="modalNuevaCitaTelefono"><i class="fa fa-user"></i>&nbsp;Teléfono</label>
-                            <input id="modalNuevaCitaTelefono" type="number" class="form-control form-control-sm nuevacitanum upptxt" maxlength="10" placeholder="Teléfono" autocomplete="off">
+                            <input id="modalNuevaCitaTelefono" type="number" class="form-control form-control-sm nuevacitanum upptxt" onkeydown="if(this.value.length==10 && event.keyCode!=8) return false;" placeholder="Teléfono" autocomplete="off">
                         </div>
                     </div>
                     <div class="col-sm-4">

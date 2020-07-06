@@ -94,3 +94,9 @@ C:\Users\Darth Truji\Desktop\siacWEB\siacWEB\obj\Debug\siacWEB.csproj.CoreCompil
 C:\Users\Darth Truji\Desktop\siacWEB\siacWEB\obj\Debug\siacWEB.csproj.CopyComplete
 C:\Users\Darth Truji\Desktop\siacWEB\siacWEB\obj\Debug\siacWEB.dll
 C:\Users\Darth Truji\Desktop\siacWEB\siacWEB\obj\Debug\siacWEB.pdb
+C:\Users\Darth Truji\Desktop\siacWEB\siacWEB\bin\Ionic.Zip.dll
+C:\Users\Darth Truji\Desktop\siacWEB\siacWEB\bin\Microsoft.IdentityModel.Logging.dll
+C:\Users\Darth Truji\Desktop\siacWEB\siacWEB\bin\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Darth Truji\Desktop\siacWEB\siacWEB\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Darth Truji\Desktop\siacWEB\siacWEB\bin\Microsoft.IdentityModel.Tokens.xml
+C:\Users\Darth Truji\Desktop\siacWEB\siacWEB\bin\System.IdentityModel.Tokens.Jwt.xml

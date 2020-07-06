@@ -9,6 +9,7 @@ USE siac;
 DROP TABLE IF EXISTS dbo.clinica;
 DROP TABLE IF EXISTS dbo.usuariosclinica;
 DROP TABLE IF EXISTS dbo.usuarios;
+DROP TABLE IF EXISTS dbo.usuarioinfo;
 DROP TABLE IF EXISTS dbo.especialidades;
 DROP TABLE IF EXISTS dbo.medicos;
 DROP TABLE IF EXISTS dbo.horariosmedicos;
@@ -63,11 +64,26 @@ CREATE TABLE [dbo].[usuarios](
 	[activo] [int] NOT NULL DEFAULT 1,
 	[estatus] [int] NOT NULL DEFAULT 1,
 	[idnotificacion] [varchar](200) NOT NULL,
+	[tipo] [varchar](200) NOT NULL,
 	[fechahora] [datetime] NULL,
 	[admusuario] [varchar](50) NULL,
 		CONSTRAINT [PK_UsuarioID] PRIMARY KEY CLUSTERED ([id] ASC)
 );
-INSERT INTO dbo.usuarios (usuario,tokenusuario,tokenclinica,nombre,apellido,correo,pass,administrador,idnotificacion,fechahora,admusuario) VALUES ('adm','75996de9e8471c8a7dd7b05ff064b34d','tenNDKnFbgbXD7Ajplvj3ol498Z7Fr','Admin','Siac','correo@mail.com','202cb962ac59075b964b07152d234b70','true','56789','2017-08-09','SiacMTG');
+INSERT INTO dbo.usuarios (usuario,tokenusuario,tokenclinica,nombre,apellido,correo,pass,administrador,idnotificacion,tipo,fechahora,admusuario) VALUES ('adm','75996de9e8471c8a7dd7b05ff064b34d','tenNDKnFbgbXD7Ajplvj3ol498Z7Fr','Admin','Siac','correo@mail.com','202cb962ac59075b964b07152d234b70','true','56789','A','2017-08-09','SiacMTG');
+
+CREATE TABLE [dbo].[usuarioinfo](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[idusuario] [int] NOT NULL,
+	[idclinica] [int] NOT NULL,
+	[direccion] [varchar](200) NOT NULL DEFAULT '--',
+	[telefono] [float] NOT NULL DEFAULT 0,
+	[celular] [float] NOT NULL DEFAULT 0,
+	[imagenusuario] [bit] NOT NULL DEFAULT 'False',
+	[fechahora] [datetime] NULL,
+	[admusuario] [varchar](50) NULL,
+		CONSTRAINT [PK_UsuarioInfoID] PRIMARY KEY CLUSTERED ([id] ASC)
+);
+INSERT INTO dbo.usuarioinfo (idusuario,idclinica,fechahora,admusuario) VALUES (1,1,'2017-08-09','SiacMTG');
 
 CREATE TABLE [dbo].[especialidades](
 	[id] [int] IDENTITY(1,1) NOT NULL,

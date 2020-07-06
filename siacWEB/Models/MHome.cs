@@ -53,7 +53,14 @@ namespace siacWEB.Models
 
         // ARRAY DE PERFILES
         readonly string[] PerfilesArr = {
-            "registroconsulta", "pagarconsulta"
+            "registrarcita", "pagarcita",
+            "medicos",
+        };
+        // ARRAY DE PERFILES [ MODO DE TEXTO - PARA FORMULARIOS ]
+        public string[] PerfilesArrTxt =
+        {
+            "Registrar Cita", "Pagar Cita",
+            "Médicos",
         };
 
         // ::::::::::::::::::::::::: INICIO DE SESION :::::::::::::::::::::::::
@@ -182,5 +189,52 @@ namespace siacWEB.Models
                 SQL.conSQL.Close();
             }
         }
+
+        // ::::::::::::::::::: MENU INFERIOR USUARIO INFO :::::::::::::::::::
+        // FUNCION QUE DEVUELVE LA INFO DEL USUARIO
+        public string ConUsuarioInfo(string tokenusuario, int idclinica)
+        {
+            try
+            {
+                SQL.comandoSQLTrans("ConUsuarioInfo");
+                ClinicaInfo Clinica = new ClinicaInfo();
+                SQL.commandoSQL = new SqlCommand("SELECT * FROM dbo.usuariosclinica WHERE idclinica = @IDClinicaParam", SQL.conSQL, SQL.transaccionSQL);
+                SQL.commandoSQL.Parameters.Add(new SqlParameter("@IDClinicaParam", SqlDbType.Int) { Value = idclinica });
+                using (var lector = SQL.commandoSQL.ExecuteReader())
+                {
+                    while (lector.Read())
+                    {
+                        Clinica.IdClinica = int.Parse(lector["id"].ToString());
+                        Clinica.NombreClinica = lector["nombreclinica"].ToString();
+                        Clinica.ClaveClinica = lector["claveclinica"].ToString();
+                        Clinica.Direccion = lector["direccion"].ToString();
+                        Clinica.CP = lector["cp"].ToString();
+                        Clinica.Telefono = double.Parse(lector["telefono"].ToString());
+                        Clinica.Colonia = lector["colonia"].ToString();
+                        Clinica.Localidad = lector["localidad"].ToString();
+                        Clinica.MunicipioIndx = lector["municipioindx"].ToString();
+                        Clinica.Municipio = lector["municipio"].ToString();
+                        Clinica.Estado = lector["estado"].ToString();
+                        Clinica.EstadoIndx = lector["estadoindx"].ToString();
+                        Clinica.LogoPersoalizado = bool.Parse(lector["logopersonalizado"].ToString());
+                        Clinica.NombreDirector = lector["nombredirector"].ToString();
+                        Clinica.SiglaLegal = lector["siglalegal"].ToString();
+                    }
+                }
+
+                SQL.transaccionSQL.Commit();
+                return JsonConvert.SerializeObject(Clinica);
+            }
+            catch (Exception e)
+            {
+                SQL.transaccionSQL.Rollback();
+                return e.ToString();
+            }
+            finally
+            {
+                SQL.conSQL.Close();
+            }
+        }
+        // ::::::::::::::::::: MENU INFERIOR USUARIO INFO :::::::::::::::::::
     }
 }

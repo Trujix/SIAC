@@ -46,6 +46,13 @@ namespace siacWEB.Controllers
             return View();
         }
 
+        // ------------ VISTAS DE MENU INFERIOR --------
+        // FUNCION QUE DEVUELVE LA VISTA DE INFO DE USUARIO
+        public ActionResult UsuarioInfo()
+        {
+            return View();
+        }
+
         // ------------------ FUNCIONES ------------------
         // FUNCION QUE INICIA SESION
         public string IniciarSesion(MHome.LoginData LoginData)
@@ -96,7 +103,6 @@ namespace siacWEB.Controllers
                     Dictionary<string, object> UsuarioInfo = new Dictionary<string, object>()
                     {
                         { "NombreUsuario", Session["NombreUsuario"] },
-                        { "cookie", Request.Cookies["usuariodata"].Value.ToString() },
                     };
                     return JsonConvert.SerializeObject(UsuarioInfo);
                 }
@@ -110,5 +116,14 @@ namespace siacWEB.Controllers
                 return e.ToString();
             }
         }
+
+        // ::::::::::::::::::: MENU INFERIOR USUARIO INFO :::::::::::::::::::
+        // FUNCION QUE DEVUELVE LA INFO DEL USUARIO
+        public string ConUsuarioInfo()
+        {
+            bool vs = MISC.VerifSesion();
+            return MiHome.ConUsuarioInfo(MISC.TokenUsuario(), (int)Session["IdClinica"]);
+        }
+        // ::::::::::::::::::: MENU INFERIOR USUARIO INFO :::::::::::::::::::
     }
 }

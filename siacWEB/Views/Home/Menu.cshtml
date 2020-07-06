@@ -4,16 +4,16 @@
         <div class="col-md-3 left_col menu_fixed">
             <div class="left_col scroll-view">
                 <div class="navbar nav_title" style="border: 0;">
-                    <a id="menu_toggle" class="site_title" style="cursor: pointer;"><i class="fa fa-list"></i> <span>Menú Principal</span></a>
+                    <a id="menu_toggle"  class="menu_abrirbtn site_title" style="cursor: pointer;"><i class="fa fa-list"></i> <span>Menú Principal</span></a>
                 </div>
                 <div class="clearfix"></div>
                 <div class="profile clearfix">
                     <div class="profile_pic">
-                        <img id="menuUsuarioPic" src="../Media/usuariodefault.png" alt="..." class="img-circle profile_img">
+                        <img src="../Media/usuariodefault.png" alt="..." class="menuUsuarioPic img-circle profile_img">
                     </div>
                     <div class="profile_info">
                         <span>Bienvenido,</span>
-                        <h2 id="menuUsuarioNombre">--</h2>
+                        <h2 class="menuUsuarioNombre">--</h2>
                     </div>
                 </div>
 
@@ -23,18 +23,10 @@
                         <h3>General</h3>
                         <ul class="nav side-menu">
                             <li>
-                                <a><i class="fa fa-edit"></i> Consultas <span class="fa fa-chevron-down"></span></a>
+                                <a><i class="fa fa-edit"></i> Citas Médicas <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a op="registrarconsulta">Registrar Consulta</a></li>
-                                    <li><a op="pagarconsulta">Pagar Consulta</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a><i class="fa fa-home"></i> Menu 2 <span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a>Submenu1</a></li>
-                                    <li><a>Submenu2</a></li>
-                                    <li><a>Submenu3</a></li>
+                                    <li><a op="registrarcita">Registrar Cita</a></li>
+                                    <li><a op="pagarconsulta">Pagar Cita</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -48,8 +40,8 @@
                             <li>
                                 <a><i class="fa fa-table"></i> Menu 4 <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="tables.html">Submenu1</a></li>
-                                    <li><a href="tables_dynamic.html">Submenu2</a></li>
+                                    <li><a>Submenu1</a></li>
+                                    <li><a>Submenu2</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -60,6 +52,14 @@
                                     <li><a>Submenu3</a></li>
                                     <li><a>Submenu4</a></li>
                                     <li><a>Submenu5</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a><i class="fa fa-user"></i> Administración <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a>Médicos</a></li>
+                                    <li><a>Usuarios</a></li>
+                                    <li><a>Perfiles</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -88,16 +88,16 @@
                     </div>
                 </div>
                 <div class="sidebar-footer hidden-small">
-                    <a data-toggle="tooltip" data-placement="top" title="Configuración" style="cursor: pointer;">
+                    <a class="configuracionClinica" data-toggle="tooltip" data-placement="top" title="Configuración" style="cursor: pointer;">
                         <span class="fa fa-cog" aria-hidden="true"></span>
                     </a>
-                    <a data-toggle="tooltip" data-placement="top" title="Usuario" style="cursor: pointer;">
+                    <a class="usuarioInfo" data-toggle="tooltip" data-placement="top" title="Usuario" style="cursor: pointer;">
                         <span class="fa fa-user" aria-hidden="true"></span>
                     </a>
-                    <a data-toggle="tooltip" data-placement="top" title="Mensajes" style="cursor: pointer;">
+                    <a class="usuarioNotificaciones" data-toggle="tooltip" data-placement="top" title="Mensajes" style="cursor: pointer;">
                         <span class="fa fa-envelope" aria-hidden="true"></span>
                     </a>
-                    <a id="cerrarSesion" data-toggle="tooltip" data-placement="top" title="Cerrar Sesión" style="cursor: pointer;">
+                    <a class="cerrarSesion" data-toggle="tooltip" data-placement="top" title="Cerrar Sesión" style="cursor: pointer;">
                         <span class="fa fa-power-off" aria-hidden="true"></span>
                     </a>
                 </div>

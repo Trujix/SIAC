@@ -1,0 +1,58 @@
+﻿@{
+    Layout = null;
+}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="col-sm-12">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><i class="fa fa-pen"></i> Información General</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><i class="fa fa-picture-o"></i> Imagen Usuario</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="usuarioInfoPass-tab" data-toggle="tab" href="#usuarioInfoPass" role="tab" aria-controls="usuarioInfoPass" aria-selected="false"><i class="fa fa-lock"></i> Contraseña</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="usuarioInfoTab">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                        <div class="tab-pane fade" id="usuarioInfoPass" role="tabpanel" aria-labelledby="usuarioInfoPass-tab">
+                            <div class="row" style="padding-top: 10px;">
+                                <div class="col-sm-12">
+                                    <h5>Cambiar Contraseña</h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label for="usuarioInfoAntPass"><i class="fa fa-user-lock"></i>&nbsp;Contraseña Anterior</label>
+                                        <input type="password" id="usuarioInfoAntPass" class="form-control form-control-sm" placeholder="Contraseña Anterior" autocomplete="off" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label for="usuarioInfoNuevaPass"><i class="fa fa-user-lock"></i>&nbsp;Nueva Contraseña</label>
+                                        <input type="password" id="usuarioInfoNuevaPass" class="form-control form-control-sm" placeholder="Nueva Contraseña" autocomplete="off" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label for="usuarioInfoNuevaPassO"><i class="fa fa-user-lock"></i>&nbsp;Repita Contraseña</label>
+                                        <input type="password" id="usuarioInfoNuevaPassO" class="form-control form-control-sm" placeholder="Repita Contraseña" autocomplete="off" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <button id="usuarioInfoPassGuardar" class="btn btn-success btn-sm btn-block" style="margin-top: 25px;"><i class="fa fa-save"></i> Guardar Cambios</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

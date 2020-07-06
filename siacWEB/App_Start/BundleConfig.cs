@@ -33,6 +33,7 @@ namespace siacWEB
                       "~/Scripts/dataTables.bootstrap4.min.js",
                       "~/Scripts/pnotify.min.js",
                       "~/Scripts/pnotify.js",
+                      "~/Scripts/attrchange.js",
                       "~/Scripts/loader.js",
                       "~/Scripts/errores.js",
                       "~/Scripts/auxfuns.js"));
@@ -53,6 +54,7 @@ namespace siacWEB
                       "~/Scripts/menu.min.js",
                       "~/Scripts/dinamicos.js",
                       "~/Scripts/index.js",
+                      "~/Scripts/citas.js",
                       "~/Scripts/consultas.js"));
         }
     }

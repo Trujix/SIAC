@@ -16,40 +16,49 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>09/10/2013 10:29:20</publishTime>
     </File>
     <File Include="bin/es/System.Net.Http.Formatting.resources.dll">
-      <publishTime>02/01/2018 05:17:28</publishTime>
+      <publishTime>02/01/2018 12:17:28</publishTime>
     </File>
     <File Include="bin/es/System.Web.Helpers.resources.dll">
-      <publishTime>02/01/2018 05:21:06</publishTime>
+      <publishTime>02/01/2018 12:21:06</publishTime>
     </File>
     <File Include="bin/es/System.Web.Http.resources.dll">
-      <publishTime>02/01/2018 05:17:50</publishTime>
+      <publishTime>02/01/2018 12:17:50</publishTime>
     </File>
     <File Include="bin/es/System.Web.Http.WebHost.resources.dll">
-      <publishTime>02/01/2018 05:19:34</publishTime>
+      <publishTime>02/01/2018 12:19:34</publishTime>
     </File>
     <File Include="bin/es/System.Web.Mvc.resources.dll">
-      <publishTime>02/01/2018 05:16:42</publishTime>
+      <publishTime>02/01/2018 12:16:42</publishTime>
     </File>
     <File Include="bin/es/System.Web.Optimization.resources.dll">
-      <publishTime>02/11/2014 08:28:40</publishTime>
+      <publishTime>02/11/2014 15:28:40</publishTime>
     </File>
     <File Include="bin/es/System.Web.Razor.resources.dll">
-      <publishTime>02/01/2018 05:17:04</publishTime>
+      <publishTime>02/01/2018 12:17:04</publishTime>
     </File>
     <File Include="bin/es/System.Web.WebPages.Deployment.resources.dll">
-      <publishTime>02/01/2018 05:21:06</publishTime>
+      <publishTime>02/01/2018 12:21:06</publishTime>
     </File>
     <File Include="bin/es/System.Web.WebPages.Razor.resources.dll">
-      <publishTime>02/01/2018 05:21:06</publishTime>
+      <publishTime>02/01/2018 12:21:06</publishTime>
     </File>
     <File Include="bin/es/System.Web.WebPages.resources.dll">
-      <publishTime>02/01/2018 05:21:06</publishTime>
+      <publishTime>02/01/2018 12:21:06</publishTime>
+    </File>
+    <File Include="bin/Ionic.Zip.dll">
+      <publishTime>11/22/2017 14:06:00</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.TelemetryCorrelation.dll">
       <publishTime>06/28/2017 09:05:26</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>05/24/2018 07:38:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.IdentityModel.Logging.dll">
+      <publishTime>01/10/2017 15:22:58</publishTime>
+    </File>
+    <File Include="bin/Microsoft.IdentityModel.Tokens.dll">
+      <publishTime>01/10/2017 15:23:02</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>07/25/2012 05:48:56</publishTime>
@@ -196,13 +205,16 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>05/24/2018 07:38:24</publishTime>
     </File>
     <File Include="bin/siacWEB.dll">
-      <publishTime>07/01/2020 01:55:15</publishTime>
+      <publishTime>07/05/2020 23:11:56</publishTime>
     </File>
     <File Include="bin/siacWEB.pdb">
-      <publishTime>07/01/2020 01:55:15</publishTime>
+      <publishTime>07/05/2020 23:11:56</publishTime>
     </File>
     <File Include="bin/System.Diagnostics.DiagnosticSource.dll">
       <publishTime>07/19/2017 04:01:30</publishTime>
+    </File>
+    <File Include="bin/System.IdentityModel.Tokens.Jwt.dll">
+      <publishTime>01/10/2017 15:23:06</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>02/01/2018 05:17:18</publishTime>
@@ -234,8 +246,14 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="bin/System.Web.WebPages.Razor.dll">
       <publishTime>02/01/2018 05:20:56</publishTime>
     </File>
+    <File Include="bin/Twilio.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 06:57:34</publishTime>
+    </File>
+    <File Include="bin/WhatsAppApi.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.css">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -5433,6 +5451,9 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="Media/usuariodefault.png">
       <publishTime>06/25/2020 18:33:54</publishTime>
     </File>
+    <File Include="Scripts/attrchange.js">
+      <publishTime>07/05/2020 23:10:55</publishTime>
+    </File>
     <File Include="Scripts/auxfuns.js">
       <publishTime>06/28/2020 23:23:52</publishTime>
     </File>
@@ -5448,8 +5469,11 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="Scripts/bootstrap4-toggle.min.js.map">
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
+    <File Include="Scripts/citas.js">
+      <publishTime>07/05/2020 23:19:53</publishTime>
+    </File>
     <File Include="Scripts/consultas.js">
-      <publishTime>07/01/2020 01:40:58</publishTime>
+      <publishTime>07/04/2020 15:55:14</publishTime>
     </File>
     <File Include="Scripts/dataTables.bootstrap4.min.js">
       <publishTime>06/27/2020 01:43:15</publishTime>
@@ -5458,10 +5482,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/30/2020 17:52:18</publishTime>
     </File>
     <File Include="Scripts/errores.js">
-      <publishTime>07/01/2020 01:28:14</publishTime>
+      <publishTime>07/05/2020 19:24:56</publishTime>
     </File>
     <File Include="Scripts/index.js">
-      <publishTime>07/01/2020 00:02:38</publishTime>
+      <publishTime>07/05/2020 23:53:18</publishTime>
     </File>
     <File Include="Scripts/jquery-3.3.1.js">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -5506,7 +5530,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/26/2020 15:48:16</publishTime>
     </File>
     <File Include="Scripts/menu.min.js">
-      <publishTime>06/27/2020 02:14:10</publishTime>
+      <publishTime>07/05/2020 21:51:03</publishTime>
     </File>
     <File Include="Scripts/menuscroll.min.css">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -5529,11 +5553,23 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="Scripts/popper.min.js">
       <publishTime>06/21/2020 23:28:37</publishTime>
     </File>
+    <File Include="Scripts/xdev.js">
+      <publishTime>07/04/2020 00:26:01</publishTime>
+    </File>
+    <File Include="Views/Administracion/Medicos.cshtml">
+      <publishTime>07/05/2020 16:42:12</publishTime>
+    </File>
+    <File Include="Views/Citas/PagarCita.cshtml">
+      <publishTime>07/04/2020 16:24:08</publishTime>
+    </File>
+    <File Include="Views/Citas/RegistrarCita.cshtml">
+      <publishTime>07/05/2020 23:23:08</publishTime>
+    </File>
     <File Include="Views/Consultas/PagarConsulta.cshtml">
-      <publishTime>07/01/2020 01:09:15</publishTime>
+      <publishTime>04/07/2020 16:21:52</publishTime>
     </File>
     <File Include="Views/Consultas/RegistrarConsulta.cshtml">
-      <publishTime>06/30/2020 19:47:36</publishTime>
+      <publishTime>04/07/2020 16:18:46</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -5545,10 +5581,13 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/26/2020 17:19:27</publishTime>
     </File>
     <File Include="Views/Home/Menu.cshtml">
-      <publishTime>06/30/2020 20:39:22</publishTime>
+      <publishTime>07/05/2020 23:50:51</publishTime>
     </File>
     <File Include="Views/Home/SinPermiso.cshtml">
       <publishTime>06/26/2020 21:05:44</publishTime>
+    </File>
+    <File Include="Views/Home/UsuarioInfo.cshtml">
+      <publishTime>07/05/2020 21:45:01</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -5559,11 +5598,14 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="Views/Web.config">
       <publishTime>06/21/2020 12:35:02</publishTime>
     </File>
+    <File Include="Views/XDev/Index.cshtml">
+      <publishTime>07/01/2020 17:55:47</publishTime>
+    </File>
     <File Include="Views/_ViewStart.cshtml">
       <publishTime>06/21/2020 18:02:00</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/26/2020 04:32:42</publishTime>
+      <publishTime>07/05/2020 19:27:51</publishTime>
     </File>
   </ItemGroup>
 </Project>

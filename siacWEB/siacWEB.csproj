@@ -45,10 +45,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ionic.Zip.1.9.1.8\lib\Ionic.Zip.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=1.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.1.1.2\lib\net451\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.1.2\lib\net451\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.1.2\lib\net451\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -139,16 +152,23 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AdministracionController.cs" />
+    <Compile Include="Controllers\CitasController.cs" />
     <Compile Include="Controllers\ConsultasController.cs" />
     <Compile Include="Controllers\DinamicosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\XDevController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="MISC.cs" />
+    <Compile Include="Models\MAdministracion.cs" />
+    <Compile Include="Models\MCitas.cs" />
     <Compile Include="Models\MConsultas.cs" />
+    <Compile Include="Models\MDev.cs" />
     <Compile Include="Models\MDinamicos.cs" />
     <Compile Include="Models\MHome.cs" />
+    <Compile Include="Models\MXDev.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQL.cs" />
   </ItemGroup>
@@ -1834,8 +1854,10 @@
     <None Include="Properties\PublishProfiles\IIS.pubxml" />
     <Content Include="Media\loginicono.png" />
     <Content Include="Media\usuariodefault.png" />
+    <Content Include="Scripts\attrchange.js" />
     <Content Include="Scripts\auxfuns.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\citas.js" />
     <Content Include="Scripts\consultas.js" />
     <Content Include="Scripts\dataTables.bootstrap4.min.js" />
     <Content Include="Scripts\dinamicos.js" />
@@ -1852,6 +1874,7 @@
     <Content Include="Scripts\pnotify.js" />
     <Content Include="Scripts\pnotify.min.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\xdev.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1865,14 +1888,17 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Menu.cshtml" />
     <Content Include="Views\Home\SinPermiso.cshtml" />
-    <Content Include="Views\Consultas\RegistrarConsulta.cshtml" />
-    <Content Include="Views\Consultas\PagarConsulta.cshtml" />
+    <Content Include="Views\XDev\Index.cshtml" />
+    <Content Include="Views\Citas\RegistrarCita.cshtml" />
+    <Content Include="Views\Citas\PagarCita.cshtml" />
+    <Content Include="Views\Administracion\Medicos.cshtml" />
+    <Content Include="Views\Home\UsuarioInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Consultas\" />
     <Folder Include="Views\Dinamicos\" />
-    <Folder Include="Views\MConsultas\" />
-    <Folder Include="Views\MDinamicos\" />
+    <Folder Include="Views\MAdministracion\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
