@@ -11,7 +11,6 @@ DROP TABLE IF EXISTS dbo.usuariosclinica;
 DROP TABLE IF EXISTS dbo.usuarios;
 DROP TABLE IF EXISTS dbo.usuarioinfo;
 DROP TABLE IF EXISTS dbo.especialidades;
-DROP TABLE IF EXISTS dbo.medicos;
 DROP TABLE IF EXISTS dbo.horariosmedicos;
 DROP TABLE IF EXISTS dbo.citasregistros;
 DROP TABLE IF EXISTS dbo.pacientes;
@@ -56,8 +55,9 @@ CREATE TABLE [dbo].[usuarios](
 	[usuario] [varchar](200) NOT NULL,
 	[tokenusuario] [varchar](200) NOT NULL,
 	[tokenclinica] [varchar](200) NOT NULL,
-	[nombre] [varchar](200) NOT NULL,
-	[apellido] [varchar](200) NOT NULL,
+	[idperfil] [int] NOT NULL DEFAULT 0,
+	[nombre] [varchar](MAX) NOT NULL,
+	[apellido] [varchar](MAX) NOT NULL,
 	[correo] [varchar](200) NOT NULL,
 	[pass] [varchar](200) NOT NULL,
 	[administrador] [bit] NOT NULL DEFAULT 'False',
@@ -79,6 +79,8 @@ CREATE TABLE [dbo].[usuarioinfo](
 	[telefono] [float] NOT NULL DEFAULT 0,
 	[celular] [float] NOT NULL DEFAULT 0,
 	[imagenusuario] [bit] NOT NULL DEFAULT 'False',
+	[idespecialidad] [int] NOT NULL DEFAULT 0,
+	[consultorio] [varchar](200) NOT NULL DEFAULT '--',
 	[fechahora] [datetime] NULL,
 	[admusuario] [varchar](50) NULL,
 		CONSTRAINT [PK_UsuarioInfoID] PRIMARY KEY CLUSTERED ([id] ASC)
@@ -96,44 +98,26 @@ CREATE TABLE [dbo].[especialidades](
 INSERT INTO dbo.especialidades (idclinica,nombre,fechahora,admusuario) VALUES (1,'Medicina General','2017-08-09','SiacMTG');
 INSERT INTO dbo.especialidades (idclinica,nombre,fechahora,admusuario) VALUES (1,'Cardiologia','2017-08-09','SiacMTG');
 
-CREATE TABLE [dbo].[medicos](
-	[id] [int] IDENTITY(1,1) NOT NULL,
-	[idclinica] [int] NOT NULL,
-	[idespecialidad] [int] NOT NULL,
-	[nombre] [varchar](200) NOT NULL,
-	[apellido] [varchar](200) NOT NULL,
-	[direccion] [varchar](200) NOT NULL,
-	[telefono] [float] NOT NULL DEFAULT 0,
-	[consultorio] [varchar](200) NOT NULL,
-	[fechahora] [datetime] NULL,
-	[admusuario] [varchar](50) NULL,
-		CONSTRAINT [PK_MedicoID] PRIMARY KEY CLUSTERED ([id] ASC)
-);
-INSERT INTO dbo.medicos (idclinica,idespecialidad,nombre,apellido,direccion,telefono,consultorio,fechahora,admusuario) VALUES (1,1,'Luis','Colosio','Calle #13',3131234567,'1A','2017-08-09','SiacMTG');
-INSERT INTO dbo.medicos (idclinica,idespecialidad,nombre,apellido,direccion,telefono,consultorio,fechahora,admusuario) VALUES (1,2,'Carlos','Gonzalez','Calle #14',3131234567,'1B','2017-08-09','SiacMTG');
-
 CREATE TABLE [dbo].[horariosmedicos](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[idclinica] [int] NOT NULL,
-	[idmedico] [int] NOT NULL,
-	[lunes] [varchar](200) NOT NULL,
-	[martes] [varchar](200) NOT NULL,
-	[miercoles] [varchar](200) NOT NULL,
-	[jueves] [varchar](200) NOT NULL,
-	[viernes] [varchar](200) NOT NULL,
-	[sabado] [varchar](200) NOT NULL,
-	[domingo] [varchar](200) NOT NULL,
+	[idusuario] [int] NOT NULL,
+	[lunes] [varchar](200) NOT NULL DEFAULT '--',
+	[martes] [varchar](200) NOT NULL DEFAULT '--',
+	[miercoles] [varchar](200) NOT NULL DEFAULT '--',
+	[jueves] [varchar](200) NOT NULL DEFAULT '--',
+	[viernes] [varchar](200) NOT NULL DEFAULT '--',
+	[sabado] [varchar](200) NOT NULL DEFAULT '--',
+	[domingo] [varchar](200) NOT NULL DEFAULT '--',
 	[fechahora] [datetime] NULL,
 	[admusuario] [varchar](50) NULL,
 		CONSTRAINT [PK_HorarioMedicoID] PRIMARY KEY CLUSTERED ([id] ASC)
 );
-INSERT INTO dbo.horariosmedicos (idclinica,idmedico,lunes,martes,miercoles,jueves,viernes,sabado,domingo,fechahora,admusuario) VALUES (1,1,'10:00-13:00,15:00-18:00','14:00-19:00','14:00-19:00','14:00-19:00','10:00-13:00,15:00-18:00','--','--','2017-08-09','SiacMTG');
-INSERT INTO dbo.horariosmedicos (idclinica,idmedico,lunes,martes,miercoles,jueves,viernes,sabado,domingo,fechahora,admusuario) VALUES (1,2,'10:00-13:00,15:00-18:00','14:00-19:00','14:00-19:00','14:00-19:00','10:00-13:00,15:00-18:00','--','--','2017-08-09','SiacMTG');
 
 CREATE TABLE [dbo].[citasregistros](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[idclinica] [int] NOT NULL,
-	[idmedico] [int] NOT NULL,
+	[idusuario] [int] NOT NULL,
 	[idpaciente] [int] NOT NULL DEFAULT 0,
 	[nombrepaciente] [varchar](200) NOT NULL,
 	[horacita] [varchar](200) NOT NULL,

@@ -174,6 +174,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\cropper.css" />
     <Content Include="Content\dataTables.bootstrap4.min.css" />
     <Content Include="Content\estilospers.css" />
     <Content Include="Content\loader.css" />
@@ -1854,11 +1855,13 @@
     <None Include="Properties\PublishProfiles\IIS.pubxml" />
     <Content Include="Media\loginicono.png" />
     <Content Include="Media\usuariodefault.png" />
+    <Content Include="Scripts\administracion.js" />
     <Content Include="Scripts\attrchange.js" />
     <Content Include="Scripts\auxfuns.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\citas.js" />
     <Content Include="Scripts\consultas.js" />
+    <Content Include="Scripts\cropper.js" />
     <Content Include="Scripts\dataTables.bootstrap4.min.js" />
     <Content Include="Scripts\dinamicos.js" />
     <Content Include="Scripts\errores.js" />
@@ -1893,6 +1896,9 @@
     <Content Include="Views\Citas\PagarCita.cshtml" />
     <Content Include="Views\Administracion\Medicos.cshtml" />
     <Content Include="Views\Home\UsuarioInfo.cshtml" />
+    <Content Include="Views\Home\ConfigAdmin.cshtml" />
+    <Content Include="Views\Home\ConfigMedico.cshtml" />
+    <Content Include="Views\Home\ConfigUsuario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

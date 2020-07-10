@@ -53,6 +53,25 @@ namespace siacWEB.Controllers
             return View();
         }
 
+        // ------------------ VISTAS DE CONFIGURACION
+        // FUNCION QUE DEVUELVE LA VISTA DE CONFIGURACION [ ADMIN ]
+        public ActionResult ConfigAdmin()
+        {
+            return View();
+        }
+
+        // FUNCION QUE DEVUELVE LA VISTA DE CONFIGURACION [ ADMIN ]
+        public ActionResult ConfigMedico()
+        {
+            return View();
+        }
+        // FUNCION QUE DEVUELVE LA VISTA DE CONFIGURACION [ ADMIN ]
+        public ActionResult ConfigUsuario()
+        {
+            return View();
+        }
+
+
         // ------------------ FUNCIONES ------------------
         // FUNCION QUE INICIA SESION
         public string IniciarSesion(MHome.LoginData LoginData)
@@ -100,9 +119,11 @@ namespace siacWEB.Controllers
             {
                 if (MISC.VerifSesion())
                 {
+                    MHome.UsuarioInfo Usuario = JsonConvert.DeserializeObject<MHome.UsuarioInfo>(MiHome.ConUsuarioInfo(MISC.TokenUsuario(), (int)Session["IdClinica"], MISC.TokenClinica()));
                     Dictionary<string, object> UsuarioInfo = new Dictionary<string, object>()
                     {
                         { "NombreUsuario", Session["NombreUsuario"] },
+                        { "ImgUsuario", (Usuario.ImagenUsuario) ? "../Docs/" + Usuario.Folder + "/" + Usuario.ImgNombre : "../Media/usuariodefault.png" },
                     };
                     return JsonConvert.SerializeObject(UsuarioInfo);
                 }
@@ -117,12 +138,66 @@ namespace siacWEB.Controllers
             }
         }
 
+        // ::::::::::::::::::: MENU CONFIGURACION DE USUARIOS :::::::::::::::::::
+        // FUNCION QUE DEVUELVE LA INFORMACION DEL PANEL DE CONFIGURACION DEL [ USUARIO MEDICO ]
+        public string ConfMedicoParams(int IdUsuario)
+        {
+            bool vs = MISC.VerifSesion();
+            return MiHome.ConfMedicoParams(IdUsuario, (int)Session["IdClinica"]);
+        }
+
+        // FUNCION QUE GUARDA EL HORARIO DEL MEDICO [ USUARIO  MEDICO ]
+        public string EditHorarioMedico(MHome.HorarioMedicoAlta HorarioData)
+        {
+            return MiHome.EditHorarioMedico(HorarioData, (int)Session["IdClinica"]);
+        }
+        // ::::::::::::::::::: MENU CONFIGURACION DE USUARIOS :::::::::::::::::::
+
         // ::::::::::::::::::: MENU INFERIOR USUARIO INFO :::::::::::::::::::
         // FUNCION QUE DEVUELVE LA INFO DEL USUARIO
         public string ConUsuarioInfo()
         {
             bool vs = MISC.VerifSesion();
-            return MiHome.ConUsuarioInfo(MISC.TokenUsuario(), (int)Session["IdClinica"]);
+            return MiHome.ConUsuarioInfo(MISC.TokenUsuario(), (int)Session["IdClinica"], MISC.TokenClinica());
+        }
+
+        // FUNCION QUE GUARDA LA INFO DEL USUARIO
+        public string GuardarInfoUsuario(MHome.UsuarioInfo UsuarioInfo)
+        {
+            bool vs = MISC.VerifSesion();
+            string Guardar = MiHome.GuardarInfoUsuario(UsuarioInfo, MISC.TokenUsuario(), MISC.TokenClinica(), (int)Session["IdClinica"]);
+            if(Guardar == "true")
+            {
+                Session["NombreUsuario"] = UsuarioInfo.Nombre + " " + UsuarioInfo.Apellido;
+            }
+            return Guardar;
+        }
+
+        // FUNCION QUE GUARDA UNA IMAGEN DE USUARIO
+        public string AltaImgUsuario(MHome.ImagenUsuario ImgData)
+        {
+            bool vs = MISC.VerifSesion();
+            string Alta = MiHome.ImgUsuarioEstatus(ImgData, (int)Session["IdClinica"]);
+            Dictionary<string, object> AltaImg = new Dictionary<string, object>()
+            {
+                { "AltaImgEstatus", Alta },
+                { "GuardarImg", (Alta == "true") ? MISC.GuardarArchivo(ImgData.ImgNombre, Server.MapPath("~"), MISC.Base64ToImage(ImgData.Base64Codigo)) : "true" },
+            };
+            return JsonConvert.SerializeObject(AltaImg);
+        }
+
+        // FUNCION QUE ELIMINA UNA IMAGEN DE USUARIO
+        public string ElimImgUsuario(MHome.ImagenUsuario ImgData)
+        {
+            bool vs = MISC.VerifSesion();
+            return MiHome.ImgUsuarioEstatus(ImgData, (int)Session["IdClinica"]);
+        }
+
+        // FUNCION QUE CAMBIA LA CONTRASEÑA DEL USUARIO
+        public string EditUsuarioPass(MHome.UsuarioNuevaPass NuevaPassData)
+        {
+            bool vs = MISC.VerifSesion();
+            return MiHome.EditUsuarioPass(NuevaPassData, MISC.TokenUsuario(), MISC.TokenClinica());
         }
         // ::::::::::::::::::: MENU INFERIOR USUARIO INFO :::::::::::::::::::
     }

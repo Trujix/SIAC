@@ -22,6 +22,7 @@ namespace siacWEB
                       "~/iconos/css/all.css",
                       "~/Content/dataTables.bootstrap4.min.css",
                       "~/Content/pnotify.min.css",
+                      "~/Content/cropper.css",
                       "~/Content/pnotify.css",
                       "~/Content/loader.css"));
 
@@ -31,6 +32,7 @@ namespace siacWEB
                       "~/Scripts/popper.min.js",
                       "~/Scripts/jquery.dataTables.min.js",
                       "~/Scripts/dataTables.bootstrap4.min.js",
+                      "~/Scripts/cropper.js",
                       "~/Scripts/pnotify.min.js",
                       "~/Scripts/pnotify.js",
                       "~/Scripts/attrchange.js",
@@ -55,7 +57,8 @@ namespace siacWEB
                       "~/Scripts/dinamicos.js",
                       "~/Scripts/index.js",
                       "~/Scripts/citas.js",
-                      "~/Scripts/consultas.js"));
+                      "~/Scripts/consultas.js",
+                      "~/Scripts/administracion.js"));
         }
     }
 }

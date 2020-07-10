@@ -1,0 +1,109 @@
+﻿@{
+    Layout = null;
+}
+<div id="ModalConfiguracion" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalConfigTitulo"></h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <nav>
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="nav-mchorario-tab" data-toggle="tab" href="#nav-mchorario" role="tab" aria-controls="nav-mchorario" aria-selected="true"><i class="fa fa-calendar-day"></i> Horario</a>
+                                <!--<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
+                                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>-->
+                            </div>
+                        </nav>
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-mchorario" role="tabpanel" aria-labelledby="nav-mchorario-tab">
+                                <div class="row" style="padding-top: 10px;">
+                                    <div class="col-sm-12">
+                                        <h6>Personalizar Horario</h6>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-top: 5px;">
+                                    <div class="col-sm-12">
+                                        <div class="table-responsive">
+                                            <table class="table table-sm table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="text-align: center;">Lunes</th>
+                                                        <th style="text-align: center;">Martes</th>
+                                                        <th style="text-align: center;">Miercoles</th>
+                                                        <th style="text-align: center;">Jueves</th>
+                                                        <th style="text-align: center;">Viernes</th>
+                                                        <th style="text-align: center;">Sabado</th>
+                                                        <th style="text-align: center;">Domingo</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td id="modalConfTHorarioLunes" style="text-align: center;"></td>
+                                                        <td id="modalConfTHorarioMartes" style="text-align: center;"></td>
+                                                        <td id="modalConfTHorarioMiercoles" style="text-align: center;"></td>
+                                                        <td id="modalConfTHorarioJueves" style="text-align: center;"></td>
+                                                        <td id="modalConfTHorarioViernes" style="text-align: center;"></td>
+                                                        <td id="modalConfTHorarioSabado" style="text-align: center;"></td>
+                                                        <td id="modalConfTHorarioDomingo" style="text-align: center;"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td id="modalConfBHorarioLunes"><button class="btn btn-sm btn-block btn-info modalconfhor"><i class="fa fa-cog"></i> Configurar</button></td>
+                                                        <td id="modalConfBHorarioMartes"><button class="btn btn-sm btn-block btn-info modalconfhor"><i class="fa fa-cog"></i> Configurar</button></td>
+                                                        <td id="modalConfBHorarioMiercoles"><button class="btn btn-sm btn-block btn-info modalconfhor"><i class="fa fa-cog"></i> Configurar</button></td>
+                                                        <td id="modalConfBHorarioJueves"><button class="btn btn-sm btn-block btn-info modalconfhor"><i class="fa fa-cog"></i> Configurar</button></td>
+                                                        <td id="modalConfBHorarioViernes"><button class="btn btn-sm btn-block btn-info modalconfhor"><i class="fa fa-cog"></i> Configurar</button></td>
+                                                        <td id="modalConfBHorarioSabado"><button class="btn btn-sm btn-block btn-info modalconfhor"><i class="fa fa-cog"></i> Configurar</button></td>
+                                                        <td id="modalConfBHorarioDomingo"><button class="btn btn-sm btn-block btn-info modalconfhor"><i class="fa fa-cog"></i> Configurar</button></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-top: 10px;">
+                                    <div class="col-sm-3">
+                                        <button id="modalConfGuardar" class="btn btn-sm btn-block btn-success"><i class="fa fa-save"></i> Guardar Horario</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+                            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modalHorarioNuevoHr" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Nuevo Horario</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-5">
+                        <input id="modalHorarioNuevoHrInicio" type="time" class="form-control form-control-sm" />
+                    </div>
+                    <div class="col-2" align="center">
+                        <label><b>- A -</b></label>
+                    </div>
+                    <div class="col-5">
+                        <input id="modalHorarioNuevoHrFin" type="time" class="form-control form-control-sm" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="modalHorarioNuevoHrGuardar" type="button" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Agregar Horario</button>
+                <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>

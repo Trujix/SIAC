@@ -45,7 +45,7 @@ $(document).on('change', '#modalNuevaCitaEspecialidad', function () {
     if (idEsp !== "-1") {
         var medicos = '';
         $(EspecialidadesMedicosJSON[idEsp]).each(function (key, value) {
-            medicos = '<option value="' + value.IdMedico + '">' + value.NombreCompleto + '</option>';
+            medicos += '<option value="' + value.IdMedico + '">' + value.NombreCompleto + '</option>';
         });
         $('#modalNuevaCitaMedico').append(medicos);
     }
@@ -634,7 +634,7 @@ function llenarPagosCitaTabla(alta, msg) {
 
 // FUNCION QUE ABRE UN MODAL PARA PAGAR UNA CITA
 function pagarCita(id) {
-    IdCitaCitaGLOBAL = id;
+    IdCitaGLOBAL = id;
     LoadingOn("Espere...");
     $('#modalPagarCita').modal('show');
 }

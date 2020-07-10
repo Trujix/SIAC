@@ -45,7 +45,7 @@ $(document).on('change', '#modalNuevaCitaEspecialidad', function () {
     if (idEsp !== "-1") {
         var medicos = '';
         $(EspecialidadesMedicosJSON[idEsp]).each(function (key, value) {
-            medicos = '<option value="' + value.IdMedico + '">' + value.NombreCompleto + '</option>';
+            medicos += '<option value="' + value.IdMedico + '">' + value.NombreCompleto + '</option>';
         });
         $('#modalNuevaCitaMedico').append(medicos);
     }
@@ -239,7 +239,7 @@ function iniRegistrarCita() {
                 $('#modalNuevaCitaMedico').html('<option value="-1">- SELECC. MÉDICO -</option>');
                 HorariosMedicosJSON = data.HorariosMedicos;
                 TablaCitasHTML = $('#tablaCitas').DataTable({
-                    scrollY: "65vh",
+                    scrollY: ($('.top_nav').prop('outerHTML') !== "") ? "55vh" : "65vh",
                     data: [],
                     columns: [
                         { title: "Hora" },
@@ -598,7 +598,7 @@ function llenarPagosCitaTabla(alta, msg) {
                     MsgAlerta(msg[0], msg[1], msg[2], msg[3]);
                 } else {
                     TablaCitasHTML = $('#tablaCitasPagos').DataTable({
-                        scrollY: "70vh",
+                        scrollY: ($('.top_nav').prop('outerHTML') !== "") ? "65vh" : "70vh",
                         data: data.CitasTabla,
                         columns: [
                             { title: "Hora" },

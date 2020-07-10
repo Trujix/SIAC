@@ -68,6 +68,14 @@ var ErrorLogJSON = {
         Detalle: "Pago Consulta",
         ErrorReciente: "",
     },
+    E013: {
+        Detalle: "Parametros Nuevo Medico",
+        ErrorReciente: "",
+    },
+    E014: {
+        Detalle: "Guardar Nuevo Medico",
+        ErrorReciente: "",
+    },
 
     E20001: {
         Detalle: "Consulta Dinamica Pacientes",
@@ -77,9 +85,37 @@ var ErrorLogJSON = {
         Detalle: "Consulta Dinamica Pacientes - Elecc",
         ErrorReciente: "",
     },
+    E20003: {
+        Detalle: "Menu Configuracion Medico",
+        ErrorReciente: "",
+    },
+    E20004: {
+        Detalle: "Guardar Horario Medico",
+        ErrorReciente: "",
+    },
 
     E30001: {
         Detalle: "Menu Usuario Info",
+        ErrorReciente: "",
+    },
+    E30002: {
+        Detalle: "Usuario Params. Info",
+        ErrorReciente: "",
+    },
+    E30003: {
+        Detalle: "Guardar Img. Usuario",
+        ErrorReciente: "",
+    },
+    E30004: {
+        Detalle: "Eliminar Img. Usuario",
+        ErrorReciente: "",
+    },
+    E30005: {
+        Detalle: "Cambiar Usuario Password",
+        ErrorReciente: "",
+    },
+    E30006: {
+        Detalle: "Guardar Info Usuario",
         ErrorReciente: "",
     },
 };

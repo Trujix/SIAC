@@ -93,7 +93,7 @@ namespace siacWEB.Models
                 }
 
                 List<MedicosCitas> ListaMedicos = new List<MedicosCitas>();
-                SQL.commandoSQL = new SqlCommand("SELECT * FROM dbo.medicos WHERE idclinica = @IDClinicaParam", SQL.conSQL, SQL.transaccionSQL);
+                SQL.commandoSQL = new SqlCommand("SELECT U.*, UI.idespecialidad, UI.consultorio FROM dbo.usuarios U JOIN dbo.usuarioinfo UI ON UI.idusuario = U.id WHERE U.tipo = 'M' AND U.tokenclinica = (SELECT token FROM dbo.clinica WHERE id = @IDClinicaParam)", SQL.conSQL, SQL.transaccionSQL);
                 SQL.commandoSQL.Parameters.Add(new SqlParameter("@IDClinicaParam", SqlDbType.Int) { Value = idclinica });
                 using (var lector = SQL.commandoSQL.ExecuteReader())
                 {
@@ -118,7 +118,7 @@ namespace siacWEB.Models
                     {
                         ListaHorariosMedicos.Add(new HorariosMedicosCitas()
                         {
-                            IdMedico = int.Parse(lector["id"].ToString()),
+                            IdMedico = int.Parse(lector["idusuario"].ToString()),
                             Lunes = lector["lunes"].ToString(),
                             Martes = lector["martes"].ToString(),
                             Miercoles = lector["miercoles"].ToString(),
@@ -159,7 +159,7 @@ namespace siacWEB.Models
                 SQL.comandoSQLTrans("ConsCitas");
                 List<CitasRegistros> ListaCitas = new List<CitasRegistros>();
                 List<string[]> CitasTabla = new List<string[]>();
-                SQL.commandoSQL = new SqlCommand("SELECT C.*, (M.nombre + ' ' + M.apellido) AS nombremedico FROM dbo.citasregistros C JOIN dbo.medicos M ON M.id = C.idmedico WHERE C.idclinica = @IDClinicaParam AND fechacita > @FechaCitaParam", SQL.conSQL, SQL.transaccionSQL);
+                SQL.commandoSQL = new SqlCommand("SELECT C.*, (M.nombre + ' ' + M.apellido) AS nombremedico FROM dbo.citasregistros C JOIN dbo.usuarios M ON M.id = C.idusuario WHERE C.idclinica = @IDClinicaParam AND fechacita > @FechaCitaParam", SQL.conSQL, SQL.transaccionSQL);
                 SqlParameter[] consultaCitas =
                 {
                     new SqlParameter("@IDClinicaParam", SqlDbType.Int) { Value = idclinica },
@@ -173,7 +173,7 @@ namespace siacWEB.Models
                         ListaCitas.Add(new CitasRegistros()
                         {
                             IdCitaRegistro = int.Parse(lector["id"].ToString()),
-                            IdMedico = int.Parse(lector["idmedico"].ToString()),
+                            IdMedico = int.Parse(lector["idusuario"].ToString()),
                             NombreMedico = lector["nombremedico"].ToString(),
                             IdPaciente = int.Parse(lector["idpaciente"].ToString()),
                             NombrePaciente = lector["nombrepaciente"].ToString(),
@@ -223,7 +223,7 @@ namespace siacWEB.Models
             {
                 SQL.comandoSQLTrans("CitasMedicoFecha");
                 List<CitasRegistros> ListaCitasRegistros = new List<CitasRegistros>();
-                SQL.commandoSQL = new SqlCommand("SELECT * FROM dbo.citasregistros WHERE idmedico = @IDMedicoParam AND fechacita = @FechaCitaParam AND idclinica = @IDClinicaParam", SQL.conSQL, SQL.transaccionSQL);
+                SQL.commandoSQL = new SqlCommand("SELECT * FROM dbo.citasregistros WHERE idusuario = @IDMedicoParam AND fechacita = @FechaCitaParam AND idclinica = @IDClinicaParam", SQL.conSQL, SQL.transaccionSQL);
                 SqlParameter[] citasMedicoRegistro =
                 {
                     new SqlParameter("@IDMedicoParam", SqlDbType.Int) { Value = citasinfo.IdMedico },
@@ -238,7 +238,7 @@ namespace siacWEB.Models
                         ListaCitasRegistros.Add(new CitasRegistros()
                         {
                             IdCitaRegistro = int.Parse(lector["id"].ToString()),
-                            IdMedico = int.Parse(lector["idmedico"].ToString()),
+                            IdMedico = int.Parse(lector["idusuario"].ToString()),
                             IdPaciente = int.Parse(lector["idpaciente"].ToString()),
                             NombrePaciente = lector["nombrepaciente"].ToString(),
                             HoraCita = lector["horacita"].ToString(),
@@ -309,7 +309,7 @@ namespace siacWEB.Models
                     }
                 }
 
-                SQL.commandoSQL = new SqlCommand("INSERT INTO dbo.citasregistros (idclinica, idmedico, idpaciente, nombrepaciente, horacita, fechacita, fechahoracita, correo, fechahora, admusuario) VALUES (@IDClinicaParam, @IDMedicoParam, @IDPacienteParam, @NombrePacienteParam, @HoraCitaParam, @FechaCitaParam, @FechaHoraCitaParam, @CorreoParam, @FechaHoraParam, (SELECT usuario FROM dbo.usuarios WHERE tokenusuario = @TokenParam))", SQL.conSQL, SQL.transaccionSQL);
+                SQL.commandoSQL = new SqlCommand("INSERT INTO dbo.citasregistros (idclinica, idusuario, idpaciente, nombrepaciente, horacita, fechacita, fechahoracita, correo, fechahora, admusuario) VALUES (@IDClinicaParam, @IDMedicoParam, @IDPacienteParam, @NombrePacienteParam, @HoraCitaParam, @FechaCitaParam, @FechaHoraCitaParam, @CorreoParam, @FechaHoraParam, (SELECT usuario FROM dbo.usuarios WHERE tokenusuario = @TokenParam))", SQL.conSQL, SQL.transaccionSQL);
                 SqlParameter[] altaNuevaCita =
                 {
                     new SqlParameter("@IDClinicaParam", SqlDbType.Int) { Value = idclinica },
@@ -380,7 +380,7 @@ namespace siacWEB.Models
                 DateTime Hoy = MISC.FechaHoy();
                 List<CitasRegistros> ListaCitas = new List<CitasRegistros>();
                 List<string[]> CitasTabla = new List<string[]>();
-                SQL.commandoSQL = new SqlCommand("SELECT C.*, (M.nombre + ' ' + M.apellido) AS nombremedico FROM dbo.citasregistros C JOIN dbo.medicos M ON M.id = C.idmedico WHERE C.fechacita = @FechaCitaParam AND C.idclinica = @IDClinicaParam AND C.pagada = 'False'", SQL.conSQL, SQL.transaccionSQL);
+                SQL.commandoSQL = new SqlCommand("SELECT C.*, (M.nombre + ' ' + M.apellido) AS nombremedico FROM dbo.citasregistros C JOIN dbo.usuarios M ON M.id = C.idusuario WHERE C.fechacita = @FechaCitaParam AND C.idclinica = @IDClinicaParam AND C.pagada = 'False'", SQL.conSQL, SQL.transaccionSQL);
                 SqlParameter[] citasMedicoPagar =
                 {
                     new SqlParameter("@FechaCitaParam", SqlDbType.DateTime) { Value = new DateTime(Hoy.Year, Hoy.Month, Hoy.Day) },
@@ -394,7 +394,7 @@ namespace siacWEB.Models
                         ListaCitas.Add(new CitasRegistros()
                         {
                             IdCitaRegistro = int.Parse(lector["id"].ToString()),
-                            IdMedico = int.Parse(lector["idmedico"].ToString()),
+                            IdMedico = int.Parse(lector["idusuario"].ToString()),
                             NombreMedico = lector["nombremedico"].ToString(),
                             IdPaciente = int.Parse(lector["idpaciente"].ToString()),
                             NombrePaciente = lector["nombrepaciente"].ToString(),
@@ -412,7 +412,7 @@ namespace siacWEB.Models
                                 DateTime.Parse(lector["fechacita"].ToString()).ToString("dddd, dd MMMM yyyy").ToUpper(),
                                 lector["nombrepaciente"].ToString(),
                                 lector["nombremedico"].ToString().ToUpper(),
-                                "<button class='btn badge badge-pill badge-success' title='Pagar Consulta' onclick='pagarConsulta(" + lector["id"].ToString() + ");'><i class='fa fa-dollar-sign'></i>&nbsp;Pagar Consulta</button>",
+                                "<button class='btn badge badge-pill badge-success' title='Pagar Consulta' onclick='pagarCita(" + lector["id"].ToString() + ");'><i class='fa fa-dollar-sign'></i>&nbsp;Pagar Consulta</button>",
                             }
                         );
                     }
@@ -442,7 +442,7 @@ namespace siacWEB.Models
         {
             try
             {
-                SQL.comandoSQLTrans("PagarConsulta");
+                SQL.comandoSQLTrans("AltaPagoCita");
                 SQL.commandoSQL = new SqlCommand("INSERT INTO dbo.pagosconsultas (idclinica, idconsulta, montopago, fechahora, admusuario) VALUES (@IDClinicaParam, @IDConsultaParam, @MontoPagoParam, @FechaHoraParam, (SELECT usuario FROM dbo.usuarios WHERE tokenusuario = @TokenParam))", SQL.conSQL, SQL.transaccionSQL);
                 SqlParameter[] pagoConsulta =
                 {

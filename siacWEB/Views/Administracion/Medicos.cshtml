@@ -1,7 +1,85 @@
-﻿
-@{
-    ViewBag.Title = "Medicos";
+﻿@{
+    Layout = null;
 }
-
-<h2>Medicos</h2>
-
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <button id="btnNuevoMedico" class="btn btn-sm btn-primary btn-block"><i class="fa fa-plus"></i> Alta Nuevo Médico</button>
+                    </div>
+                </div>
+                <div class="row" style="padding-top: 5px;">
+                    <div class="col-sm-12">
+                        <div class="table-responsive">
+                            <table id="tablaMedicos" class="table table-sm table-striped table-bordered" style="width:100%"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modalNuevoMedico" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="fa fa-stethoscope"></i> Nuevo Médico</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row" style="padding-top: 5px;">
+                    <div class="col-sm-12">
+                        <h5><b>Usuario: </b><span id="modalNuevoMedicoUsuario" class="badge badge-primary">--</span></h5>
+                    </div>
+                </div>
+                <div class="row" style="padding-top: 10px;">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="modalNuevoMedicoNombre"><i class="fa fa-user"></i>&nbsp;Nombre</label>
+                            <input type="text" id="modalNuevoMedicoNombre" class="form-control form-control-sm formnmedico" placeholder="Nombre" autocomplete="off" />
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="modalNuevoMedicoApellido"><i class="fa fa-user"></i>&nbsp;Apellido</label>
+                            <input type="text" id="modalNuevoMedicoApellido" class="form-control form-control-sm formnmedico" placeholder="Apellido" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="padding-top: 8px;">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="modalNuevoMedicoEspecialidad"><i class="fa fa-briefcase-medical"></i>&nbsp;Especialidad</label>
+                            <select id="modalNuevoMedicoEspecialidad" class="form-control form-control-sm"></select>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label for="modalNuevoMedicoCorreo"><i class="fa fa-at"></i>&nbsp;Correo</label>
+                            <input type="text" id="modalNuevoMedicoCorreo" class="form-control form-control-sm formnmedico" placeholder="Correo" autocomplete="off" />
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label for="modalNuevoMedicoConsultorio"><i class="fa fa-door-open"></i>&nbsp;Consultorio</label>
+                            <input type="text" id="modalNuevoMedicoConsultorio" class="form-control form-control-sm formnmedico" placeholder="Consultorio" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="padding-top: 5px;">
+                    <div class="col-sm-12">
+                        <div class="alert2 alert2-warning" role="alert">
+                            <i class="fa fa-info-circle"></i> El Usuario es generado de forma <b>automática</b> y es <b>único e irrepetible</b>. La información adicional del <b>Médico</b> será completada por el propio usuario, una vez que haya iniciado sesión en el sistema.<br />
+                            Recuerde que la información de <b>inicio de sesión</b> del <b>Médico</b> se le enviará por correo electrónico.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="modalNuevoMedicoGuardar" type="button" class="btn btn-sm btn-success"><i class="fa fa-save"></i> Guardar Médico</button>
+                <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>

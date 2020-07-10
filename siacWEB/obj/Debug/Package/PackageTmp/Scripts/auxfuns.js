@@ -88,3 +88,38 @@ function esEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
 }
+
+// FUNCION QUE CREA CADENA ALEATORIA (LONGITUD QUE SE NECESITE)
+function cadAleatoria(lng) {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789";
+    for (var r = 0; r < lng; r++) {
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+    return text;
+}
+
+// FUNCION QUE DEVUELVE UN NUMERO ALEATORIO DE ACUERDO A LA LONGITUD
+function numAleatorio(lng) {
+    var num = "";
+    for (i = 0; i < lng; i++) {
+        num += "9";
+    }
+    return Math.floor(Math.random() * parseInt(num)) + 1;
+}
+
+// FUNCION QUE GENERA UN ID DE USUARIO
+function generarUsuarioID(array, prefij) {
+    var numAl = ""
+    do {
+        numAl = prefij + numAleatorio(4);
+    } while (array.includes(numAl));
+    return numAl;
+}
+
+// FUNCION PROTOTIPICA DE [SPLICE]
+if (!String.prototype.splice) {
+    String.prototype.splice = function (start, delCount, newSubStr) {
+        return this.slice(0, start) + newSubStr + this.slice(start + Math.abs(delCount));
+    };
+}
